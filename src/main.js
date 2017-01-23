@@ -5,17 +5,23 @@ import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
 import App from './App'
 import Setting from './components/Setting'
+import MapCtrl from './components/Map'
+import Discovery from './components/Discovery'
 
 Vue.use(VueRouter)
 
 const routes = [{
   path: '/',
+  component: MapCtrl
+},{
+  path:'/setting',
   component: Setting
-}]
+},{
+  path:'/discovery',
+  component:Discovery
+}, {path: '*', redirect: '/' }]
 
-const router = new VueRouter({
-  routes
-})
+const router = new VueRouter({routes})
 
 FastClick.attach(document.body)
 

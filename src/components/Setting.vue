@@ -3,10 +3,10 @@
     <layout tab="setting"></layout>
     <div class="vux-demo">
       <img class="logo" src="../assets/vux_logo.png">
-      <h1>hello world</h1>
+      <h4>brandonxiang</h4>
     </div>
-    <group title="关于">
-      <cell title="Vux" value="Cool" is-link></cell>
+    <group>
+      <cell title="设置" is-link></cell>
     </group>
   </div>
 </template>
