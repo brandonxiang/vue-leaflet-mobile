@@ -3,10 +3,12 @@
 import Vue from 'vue'
 import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
+
 import App from './App'
 import Setting from './components/Setting'
 import MapCtrl from './components/Map'
 import Discovery from './components/Discovery'
+import store from './vuex/store'
 
 Vue.use(VueRouter)
 
@@ -28,5 +30,6 @@ FastClick.attach(document.body)
 /* eslint-disable no-new */
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')
