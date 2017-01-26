@@ -1,7 +1,7 @@
 <template>
   <div>
     <tabbar>
-      <tabbar-item link="/map">
+      <tabbar-item link="/">
         <img slot="icon" src="../assets/logo.png">
         <span slot="label">地图</span>
       </tabbar-item>

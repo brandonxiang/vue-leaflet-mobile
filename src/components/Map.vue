@@ -14,10 +14,14 @@ export default{
     Layout,
   },
   mounted(){
-    L.map('map',	{
+    const mapObject = this.mapObject = L.map('map',	{
       center:[22,114],
 			zoom:9
     })
+    L.Icon.Default.imagePath = "../assets/";
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mapObject)
+    this.marker = L.marker([22,114]).addTo(mapObject)
+
   }
 }
 </script>
@@ -27,7 +31,7 @@ export default{
 
 #map {
 		width: 100%;
-    height: calc(100% - 55px);  
+    height: calc(100% - 55px);
 	}
 
 html, body, .full-height {
@@ -39,7 +43,4 @@ body {
     margin: 0;
 }
 
-.leaflet-control-attribution{
-  display:none;
-}
 </style>

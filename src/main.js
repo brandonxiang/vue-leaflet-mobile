@@ -19,7 +19,7 @@ const routes = [{
 },{
   path:'/discovery',
   component:Discovery
-}, {path: '*', redirect: '/' }]
+}]
 
 const router = new VueRouter({routes})
 
