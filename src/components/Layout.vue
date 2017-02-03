@@ -27,7 +27,7 @@ export default {
   },
   props:['tab'],
   methods:{
-    itemclick:function(){
+    itemclick(){
       console.log(1)
     }
   }

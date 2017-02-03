@@ -18,12 +18,24 @@ export default{
       center:[22,114],
 			zoom:9
     })
-    L.Icon.Default.imagePath = "../assets/";
+    this.fixImageUrl()
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mapObject)
     console.log(this.$store.state.marker)
     this.marker = this.$store.state.marker.addTo(mapObject)
 
+  },
+  methods:{
+    fixImageUrl(){
+      delete L.Icon.Default.prototype._getIconUrl
+      L.Icon.Default.mergeOptions({
+        iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+        iconUrl: require('leaflet/dist/images/marker-icon.png'),
+        shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+      });
+    }
   }
+
+
 }
 </script>
 
