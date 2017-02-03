@@ -24,8 +24,12 @@ export default{
     this.marker = this.$store.state.marker.addTo(mapObject)
 
   },
+  beforeUpdate(){
+    console.log('beforeUpdate')
+  },
   methods:{
     fixImageUrl(){
+      //https://github.com/PaulLeCam/react-leaflet/issues/255#issuecomment-261904061
       delete L.Icon.Default.prototype._getIconUrl
       L.Icon.Default.mergeOptions({
         iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
