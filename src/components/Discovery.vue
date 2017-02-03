@@ -2,7 +2,7 @@
   <div>
     <layout tab="setting"></layout>
     <grid>
-      <grid-item  v-for="item in icons" :label="item.title" @on-item-click="switchCity(item.coordinates)">
+      <grid-item link="/"  v-for="item in icons" :label="item.title" @on-item-click="MARKERCHANGE(item.coordinates)">
          <img slot="icon" src="../assets/logo.png">
       </grid-item>
     </grid>
@@ -12,6 +12,7 @@
 <script>
 import { Grid, GridItem } from 'vux'
 import Layout from './Layout'
+import {mapMutations} from 'vuex'
 
 export default {
   components: {
@@ -34,11 +35,9 @@ export default {
         ]
       }
     },
-    methods:{
-      switchCity(e){
-        console.log(e)
-      }
-    }
+    methods: mapMutations([
+      'MARKERCHANGE'
+    ])
   }
 
 </script>

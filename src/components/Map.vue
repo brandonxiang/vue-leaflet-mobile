@@ -20,7 +20,8 @@ export default{
     })
     L.Icon.Default.imagePath = "../assets/";
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mapObject)
-    this.marker = L.marker([22,114]).addTo(mapObject)
+    console.log(this.$store.state.marker)
+    this.marker = this.$store.state.marker.addTo(mapObject)
 
   }
 }
