@@ -1,10 +1,7 @@
 <template>
   <div>
     <layout tab="setting"></layout>
-    <div class="vux-demo">
-      <img class="logo" src="../assets/vux_logo.png">
-      <h4>brandonxiang</h4>
-    </div>
+    <head-part></head-part>
     <group>
       <cell title="设置" is-link></cell>
     </group>
@@ -14,12 +11,14 @@
 <script>
 import { Group, Cell } from 'vux'
 import Layout from './Layout'
+import HeadPart from './HeadPart'
 
 export default {
   components: {
     Group,
     Cell,
-    Layout
+    Layout,
+    HeadPart
   },
   data () {
     return {
@@ -28,13 +27,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.vux-demo {
-  text-align: center;
-}
-.logo {
-  width: 100px;
-  height: 100px
-}
-</style>

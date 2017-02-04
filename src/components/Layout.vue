@@ -17,7 +17,7 @@ export default {
     Tabbar,
     TabbarItem
   },
-  data:()=>{return {
+  data(){return {
     items:[{
       link: "/",
       logo: require("../assets/map.png"),
