@@ -3,7 +3,7 @@
     <layout tab="setting"></layout>
     <head-part></head-part>
     <group>
-      <cell title="设置" is-link></cell>
+      <lang-picker></lang-picker>
     </group>
   </div>
 </template>
@@ -12,13 +12,15 @@
 import { Group, Cell } from 'vux'
 import Layout from './Layout'
 import HeadPart from './HeadPart'
+import LangPicker from './LangPicker'
 
 export default {
   components: {
     Group,
     Cell,
     Layout,
-    HeadPart
+    HeadPart,
+    LangPicker
   },
   data () {
     return {
