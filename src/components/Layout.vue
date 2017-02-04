@@ -1,17 +1,9 @@
 <template>
   <div>
     <tabbar>
-      <tabbar-item link="/">
-        <img slot="icon" src="../assets/logo.png">
-        <span slot="label">地图</span>
-      </tabbar-item>
-      <tabbar-item link="/discovery">
-        <img slot="icon" src="../assets/logo.png">
-        <span slot="label">发现</span>
-      </tabbar-item :selected="tab=='setting'">
-      <tabbar-item  link="setting" v-on:on-item-click="itemclick">
-        <img slot="icon" src="../assets/logo.png">
-        <span slot="label">设置</span>
+      <tabbar-item v-for="item in items" :link="item.link">
+        <img slot="icon" :src="item.logo">
+        <span slot="label">{{item.name}}</span>
       </tabbar-item>
     </tabbar>
   </div>
@@ -25,6 +17,21 @@ export default {
     Tabbar,
     TabbarItem
   },
+  data:()=>{return {
+    items:[{
+      link: "/",
+      logo: require("../assets/map.png"),
+      name: "地图"
+    },{
+      link: "/discovery",
+      logo: require("../assets/discovery.png"),
+      name: "discovery"
+    },{
+      link:"/setting",
+      logo: require("../assets/setting.png"),
+      name: "settting"
+    }]
+  }},
   props:['tab'],
   methods:{
     itemclick(){
