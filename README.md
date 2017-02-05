@@ -14,6 +14,10 @@ npm run dev
 npn run build
 ```
 
+## DEMO
+
+[DEMO](https://brandonxiang.github.io/vue-leaflet-mobile/)
+
 ## LICENSE
 
 [MIT](LICENSE)
