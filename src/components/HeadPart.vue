@@ -1,7 +1,7 @@
 <template>
   <div style="">
-    <blur :blur-amount=40 :url="url">
-      <p class="center"><img :src="url"></p>
+    <blur :blur-amount=40 url="../assets/discovery.png">
+      <p class="center"><img src="../assets/discovery.png"></p>
     </blur>
   </div>
 </template>
@@ -15,7 +15,7 @@
    },
    data (){
      return {
-       url:require("../assets/headpart.jpg")
+       url:require("../assets/vux_logo.png")
      }
    }
  }
