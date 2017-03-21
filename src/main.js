@@ -1,35 +1,50 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
-import FastClick from 'fastclick'
-import VueRouter from 'vue-router'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import FastClick from 'fastclick';
+import VueRouter from 'vue-router';
 
-import App from './App'
-import Setting from './components/Setting'
-import MapCtrl from './components/Map'
-import Discovery from './components/Discovery'
-import store from './vuex/store'
+import vuexI18n from 'vuex-i18n'
 
-Vue.use(VueRouter)
+import App from './App';
+import Setting from './components/Setting';
+import MapCtrl from './components/Map';
+import Discovery from './components/Discovery';
+import module from './vuex/store';
+
+Vue.use(VueRouter);
 
 const routes = [{
   path: '/',
-  component: MapCtrl
-},{
-  path:'/setting',
-  component: Setting
-},{
-  path:'/discovery',
-  component:Discovery
-}]
+  component: MapCtrl,
+}, {
+  path: '/setting',
+  component: Setting,
+}, {
+  path: '/discovery',
+  component: Discovery,
+}];
 
-const router = new VueRouter({routes})
+const router = new VueRouter({ routes });
 
-FastClick.attach(document.body)
+FastClick.attach(document.body);
 
-/* eslint-disable no-new */
+const store = new Vuex.Store({
+  modules:{
+    i18n:vuexI18n.store,
+    app:module
+  }
+})
+
+Vue.use(vuexI18n.plugin, store)
+
+Vue.i18n.add('en', require('json-loader!yaml-loader!src/locales/en.yml'))
+Vue.i18n.add('zh-CN', require('json-loader!yaml-loader!src/locales/zh-CN.yml'))
+Vue.i18n.set('zh-CN')
+
 new Vue({
   router,
   store,
-  render: h => h(App)
-}).$mount('#app')
+  render: h => h(App),
+}).$mount('#app');

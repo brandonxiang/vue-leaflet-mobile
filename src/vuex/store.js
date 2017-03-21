@@ -1,27 +1,27 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const state = {
-  center:[22,114]
-}
+  center: [22, 114],
+};
 
-const mutations={
-  MARKERCHANGE(state,coordinates){
-    state.center = coordinates
+const mutations = {
+  MARKERCHANGE(state, coordinates) {
+    state.center = coordinates;
   },
-  SETMAP(state,mapObject){
-    state.mapObject = mapObject
-  }
-}
+  SETMAP(state, mapObject) {
+    state.mapObject = mapObject;
+  },
+};
 
-const actions={
-  markerChange: ({commit}) => commit('MARKERCHANGE')
-}
+const actions = {
+  markerChange: ({ commit }) => commit('MARKERCHANGE'),
+};
 
-export default new Vuex.Store({
+export default {
   state,
   actions,
-  mutations
-})
+  mutations,
+};

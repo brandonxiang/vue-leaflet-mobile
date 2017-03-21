@@ -22,15 +22,15 @@ export default {
     items:[{
       link: "/",
       logo: require("../assets/map.png"),
-      name: "地图"
+      name: this.$t('Map')
     },{
       link: "/discovery",
       logo: require("../assets/discovery.png"),
-      name: "discovery"
+      name: this.$t('Discovery')
     },{
       link:"/setting",
       logo: require("../assets/setting.png"),
-      name: "settting"
+      name: this.$('setting')
     }]
   }},
   props:['tab'],

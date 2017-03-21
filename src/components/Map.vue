@@ -1,24 +1,3 @@
-<style>
-
-@import "~leaflet/dist/leaflet.css";
-#map {
-    width: 100%;
-    height: calc(100% - 55px);
-}
-
-html,
-body,
-.full-height {
-    height: 100%;
-}
-
-body {
-    padding: 0;
-    margin: 0;
-}
-
-</style>
-
 <template>
 
 <div class="full-height">
@@ -61,3 +40,24 @@ export default {
 }
 
 </script>
+
+<style>
+
+@import "~leaflet/dist/leaflet.css";
+#map {
+    width: 100%;
+    height: calc(100% - 55px);
+}
+
+html,
+body,
+.full-height {
+    height: 100%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+</style>
