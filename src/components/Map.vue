@@ -17,7 +17,7 @@ export default {
         Layout,
     },
     mounted() {
-        const center = this.$store.state.center
+        const center = this.$store.state.app.center
         const mapObject = this.mapObject = L.map('map', {
             center: center,
             zoom: 9

@@ -4,7 +4,7 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 const state = {
-  center: [22, 114],
+  center: [22.5455537937,114.0544373601],
 };
 
 const mutations = {

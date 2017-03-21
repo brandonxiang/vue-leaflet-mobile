@@ -17,22 +17,23 @@ export default {
     Tabbar,
     TabbarItem
   },
-  data(){
-    return {
-    items:[{
-      link: "/",
-      logo: require("../assets/map.png"),
-      name: this.$t('Map')
-    },{
-      link: "/discovery",
-      logo: require("../assets/discovery.png"),
-      name: this.$t('Discovery')
-    },{
-      link:"/setting",
-      logo: require("../assets/setting.png"),
-      name: this.$('setting')
-    }]
-  }},
+  computed:{
+    items:function(){
+      return [{
+        link: "/",
+        logo: require("../assets/map.png"),
+        name: this.$t('Map')
+      },{
+        link: "/discovery",
+        logo: require("../assets/discovery.png"),
+        name: this.$t('Discovery')
+      },{
+        link:"/setting",
+        logo: require("../assets/setting.png"),
+        name: this.$t('Setting')
+      }];
+    }
+  },
   props:['tab'],
   methods:{
     itemclick(){

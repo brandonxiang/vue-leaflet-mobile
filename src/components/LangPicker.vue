@@ -4,12 +4,6 @@
   </div>
 </template>
 
-<i18n>
-Language:
-  zh-CN: 语言
-</i18n>
-
-
 <script>
 import { PopupPicker} from 'vux'
 
@@ -27,10 +21,8 @@ export default {
     onChange (val) {
       if(val[0]==='中文'){
         this.$i18n.set('zh-CN')
-        // this.$locale.set('zh-CN')
       }else if(val[0]==='English'){
         this.$i18n.set('en')
-        // this.$locale.set('en')
       }
      },
   },
