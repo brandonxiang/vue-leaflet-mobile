@@ -2,7 +2,12 @@
 
 <div class="full-height">
     <layout tab="map"></layout>
-    <div id="map"></div>
+    <l-map :zoom="zoom" :center="center" :min-zoom="minZoom" :max-zoom="maxZoom">
+    <l-tilelayer :url="url" :attribution="attribution"></l-tilelayer>
+    <l-marker :position="center" :title="title" :opacity="opacity" :draggable="draggable">
+      <l-tooltip :content="title"></l-tooltip>
+    </l-marker>
+    </l-map>
 </div>
 
 </template>
@@ -16,27 +21,19 @@ export default {
     components: {
         Layout,
     },
-    mounted() {
-        const center = this.$store.state.app.center
-        const mapObject = this.mapObject = L.map('map', {
-            center: center,
-            zoom: 9
-        })
-        this.fixImageUrl()
-        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mapObject)
-        L.marker(center).addTo(mapObject)
-    },
-    methods: {
-        fixImageUrl() {
-            //https://github.com/PaulLeCam/react-leaflet/issues/255#issuecomment-261904061
-            delete L.Icon.Default.prototype._getIconUrl
-            L.Icon.Default.mergeOptions({
-                iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-                iconUrl: require('leaflet/dist/images/marker-icon.png'),
-                shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
-            });
-        }
-    }
+    data() {
+     return {
+      zoom: 9,
+      center: this.$store.state.app.center,
+      minZoom: 1,
+      maxZoom: 18,
+      url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+      attribution: 'brandon.xiang',
+      title: 'test-marker',
+      opacity: 1,
+      draggable:false
+    };
+  },
 }
 
 </script>
@@ -46,7 +43,7 @@ export default {
 @import "~leaflet/dist/leaflet.css";
 #map {
     width: 100%;
-    height: calc(100% - 55px);
+    height: calc(100% - 53px);
 }
 
 html,

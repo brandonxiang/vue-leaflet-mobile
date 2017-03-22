@@ -24,7 +24,7 @@ export default {
     icons:{
       get: function(){
         return[
-          {title:this.$t('Shezhen'), coordinates:[22.5455537937,114.0544373601]},
+          {title:this.$t('Shenzhen'), coordinates:[22.5455537937,114.0544373601]},
           {title:this.$t('Beijing'), coordinates:[39.9032724643,116.4009203787]},
           {title:this.$t('Shanghai'), coordinates:[31.2323076784,121.4691562490]},
           {title:this.$t('Guangzhou'), coordinates:[23.1317346641,113.2590285241]},
