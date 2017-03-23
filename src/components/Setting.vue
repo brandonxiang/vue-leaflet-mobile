@@ -5,7 +5,7 @@
       <p class="center"><img :src="headImg"></p>
     </blur>
     <group>
-      <popup-picker :title="$t('Language')" :data="langs" v-model="lang" @on-change="onChange"></popup-picker>
+      <popup-picker :title="$t('Language')" :data="langs" v-model="currentLang" @on-change="onChange"></popup-picker>
     </group>
   </div>
 </template>
@@ -22,11 +22,23 @@ export default {
     Blur,
     PopupPicker,
   },
+  computed:{
+    currentLang:{
+      get:function(){
+        const locale = this.$store.state.i18n.locale;
+        if(locale === 'zh-CN'){
+          return ['中文']
+        }else if(locale === 'en'){
+          return ['English']
+        }
+        return null
+      }
+    }
+  },
   data () {
     return {
       headImg:require("../assets/headpart.jpg"),
       langs: [['中文', 'English']],
-      lang:['中文'],
     }
   },
   methods: {

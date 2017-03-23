@@ -24,7 +24,7 @@ export default {
     data() {
      return {
       zoom: 9,
-      center: this.$store.state.app.center,
+      center: this.$store.state.app.coordinate,
       minZoom: 1,
       maxZoom: 18,
       url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
