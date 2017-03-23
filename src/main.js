@@ -33,19 +33,19 @@ FastClick.attach(document.body);
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-  modules:{
-    i18n:vuexI18n.store,
-    app:module,
-    VL:VueLeaflet.store,
-  }
-})
+  modules: {
+    i18n: vuexI18n.store,
+    app: module,
+    VL: VueLeaflet.store,
+  },
+});
 
-Vue.use(vuexI18n.plugin, store)
-Vue.use(VueLeaflet.plugin,store)
+Vue.use(vuexI18n.plugin, store);
+Vue.use(VueLeaflet.plugin, store);
 
-Vue.i18n.add('en', require('json-loader!yaml-loader!src/locales/en.yml'))
-Vue.i18n.add('zh-CN', require('json-loader!yaml-loader!src/locales/zh-CN.yml'))
-Vue.i18n.set('zh-CN')
+Vue.i18n.add('en', require('json-loader!yaml-loader!src/locales/en.yml'));
+Vue.i18n.add('zh-CN', require('json-loader!yaml-loader!src/locales/zh-CN.yml'));
+Vue.i18n.set('zh-CN');
 
 new Vue({
   router,

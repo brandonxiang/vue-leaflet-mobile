@@ -2,7 +2,7 @@
   <div>
     <layout tab="setting"></layout>
     <grid>
-      <grid-item link="/"  v-for="item in icons" :label="item.title" @on-item-click="MARKERCHANGE(item.coordinates)">
+      <grid-item link="/"  v-for="item in icons" :label="item.title" @on-item-click="changeMarker(item.coordinates)">
          <img slot="icon" src="../assets/logo.png">
       </grid-item>
     </grid>
@@ -38,7 +38,7 @@ export default {
     }
   },
   methods: mapMutations([
-    'MARKERCHANGE'
+    'changeMarker'
   ])
 }
 

@@ -3,7 +3,7 @@ const state = {
 };
 
 const mutations = {
-  MARKERCHANGE(state, coordinates) {
+  changeMarker(state, coordinates) {
     state.center = coordinates;
   },
 };
