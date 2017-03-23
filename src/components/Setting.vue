@@ -2,10 +2,11 @@
   <div>
     <layout tab="setting"></layout>
     <blur :blur-amount=40 :url="headImg">
-      <p class="center"><img :src="headImg"></p>
+      <p class="center headpart"><img :src="headImg"></p>
     </blur>
     <group>
       <popup-picker :title="$t('Language')" :data="langs" v-model="currentLang" @on-change="onChange"></popup-picker>
+      <cell :title="$t('About')" link="/about" is-link></cell>
     </group>
   </div>
 </template>
@@ -53,14 +54,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .center {
   text-align: center;
+}
+
+.headpart{
   padding-top: 20px;
   color: #fff;
   font-size: 18px;
 }
-.center img {
+
+.headpart img {
   width: 100px;
   height: 100px;
   border-radius: 50%;

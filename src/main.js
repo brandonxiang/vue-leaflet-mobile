@@ -11,6 +11,7 @@ import App from './App';
 import Setting from './components/Setting';
 import MapCtrl from './components/Map';
 import Discovery from './components/Discovery';
+import About from './components/About';
 import module from './vuex/store';
 
 Vue.use(VueRouter);
@@ -24,6 +25,9 @@ const routes = [{
 }, {
   path: '/discovery',
   component: Discovery,
+}, {
+  path: '/about',
+  component: About,
 }];
 
 const router = new VueRouter({ routes });
