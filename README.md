@@ -16,18 +16,16 @@ npn run build
 
 ## Screen Shot
 
-![Map Screen](screen/map-s.png)
-![Discovery Screen](screen/discovery-s.png)
-![Setting Screen](screen/setting-s.png)
+![Screen](screen/screen.jpg)
 
 ## DEMO
 
 [PC DEMO](https://brandonxiang.github.io/vue-leaflet-mobile/dist/)
 
-![Phone DEMO](demo.png)
+![Phone DEMO](screen/demo.png)
 
 ## LICENSE
 
 [MIT](LICENSE)
 
-[Wechat Offical Code](src/assets/qrcode.jpg)
+![Wechat Offical Code](src/assets/qrcode.jpg)
