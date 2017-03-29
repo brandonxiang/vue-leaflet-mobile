@@ -1,12 +1,10 @@
 <template>
-  <div>
     <tabbar>
       <tabbar-item v-for="item in items" :link="item.link">
         <img slot="icon" :src="item.logo">
         <span slot="label">{{item.name}}</span>
       </tabbar-item>
     </tabbar>
-  </div>
 </template>
 
 <script>
@@ -34,7 +32,6 @@ export default {
       }];
     }
   },
-  props:['tab'],
   methods:{
     itemclick(){
       console.log(1)

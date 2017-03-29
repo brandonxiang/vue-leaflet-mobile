@@ -1,6 +1,5 @@
 <template>
   <div>
-    <layout tab="setting"></layout>
     <grid>
       <grid-item link="/"  v-for="item in icons" :label="item.title" @on-item-click="changeMarker(item.coordinates)">
          <img slot="icon" src="../assets/logo.png">
@@ -11,12 +10,10 @@
 
 <script>
 import { Grid, GridItem } from 'vux'
-import Layout from './Layout'
 import {mapMutations} from 'vuex'
 
 export default {
   components: {
-    Layout,
     Grid,
     GridItem
   },

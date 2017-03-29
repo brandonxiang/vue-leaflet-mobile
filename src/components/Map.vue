@@ -1,30 +1,22 @@
 <template>
-
-<div class="full-height">
-    <layout tab="map"></layout>
-    <l-map :zoom="zoom" :center="center" :min-zoom="minZoom" :max-zoom="maxZoom">
-    <l-tilelayer :url="url" :attribution="attribution"></l-tilelayer>
-    <l-marker :position="center" :title="title" :opacity="opacity" :draggable="draggable">
-      <l-tooltip :content="title"></l-tooltip>
-    </l-marker>
-    </l-map>
-</div>
-
+    <div class="full-height">
+        <l-map :zoom="zoom" :center="center" :min-zoom="minZoom" :max-zoom="maxZoom">
+        <l-tilelayer :url="url" :attribution="attribution"></l-tilelayer>
+        <l-marker :position="center" :title="title" :opacity="opacity" :draggable="draggable">
+        <l-tooltip :content="title"></l-tooltip>
+        </l-marker>
+        </l-map>
+    </div>
 </template>
 
 <script>
 
-import L from 'leaflet'
-import Layout from './Layout'
+import {mapState} from 'vuex'
 
 export default {
-    components: {
-        Layout,
-    },
     data() {
      return {
       zoom: 9,
-      center: this.$store.state.app.coordinate,
       minZoom: 1,
       maxZoom: 18,
       url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
@@ -34,6 +26,9 @@ export default {
       draggable:false
     };
   },
+  computed: mapState({
+      center: state => state.app.coordinate,
+  }),
 }
 
 </script>
@@ -43,7 +38,11 @@ export default {
 @import "~leaflet/dist/leaflet.css";
 #map {
     width: 100%;
-    height: calc(100% - 53px);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 53px;
 }
 
 html,

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <layout tab="setting"></layout>
     <blur :blur-amount=40 :url="headImg">
       <p class="center headpart"><img :src="headImg"></p>
     </blur>
@@ -13,13 +12,11 @@
 
 <script>
 import { Group, Cell, Blur, PopupPicker } from 'vux'
-import Layout from './Layout'
 
 export default {
   components: {
     Group,
     Cell,
-    Layout,
     Blur,
     PopupPicker,
   },

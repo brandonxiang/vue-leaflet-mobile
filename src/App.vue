@@ -1,17 +1,29 @@
 <template>
-  <div class="full-height">
-    <router-view :class="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')"></router-view>
-  </div>
+ <div style="height:100%;">
+   <view-box ref="viewBox">
+      <transition :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
+          <router-view class="router-view"></router-view>
+      </transition>
+     <layout slot="bottom"></layout>
+   </view-box>
+ </div>
+
+
 </template>
 
 <script>
+import {mapState} from 'vuex';
+import {ViewBox} from 'vux';
+import Layout from './components/Layout'
 
 export default {
-  data(){
-    return{
-      direction:'forward',
-    }
-  }
+  components:{
+    ViewBox,
+    Layout,
+  },
+  computed: mapState({
+     direction: state => state.app.direction,
+  })
 }
 
 </script>

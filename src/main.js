@@ -14,6 +14,8 @@ import Discovery from './components/Discovery';
 import About from './components/About';
 import module from './vuex/store';
 
+FastClick.attach(document.body);
+
 Vue.use(VueRouter);
 
 const routes = [{
@@ -32,8 +34,6 @@ const routes = [{
 
 const router = new VueRouter({ routes });
 
-FastClick.attach(document.body);
-
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
@@ -50,6 +50,37 @@ Vue.use(VueLeaflet.plugin, store);
 Vue.i18n.add('en', require('json-loader!yaml-loader!src/locales/en.yml'));
 Vue.i18n.add('zh-CN', require('json-loader!yaml-loader!src/locales/zh-CN.yml'));
 Vue.i18n.set('zh-CN');
+
+
+const history = window.sessionStorage
+history.clear()
+let historyCount = history.getItem('count')*1 || 0
+history.setItem('/',0)
+
+router.beforeEach(function(to, from, next){
+  const toIndex = history.getItem(to.path)
+  const fromIndex = history.getItem(from.path)
+
+  if(toIndex){
+    if (toIndex > fromIndex || !fromIndex || (toIndex === '0' && fromIndex === '0')) {
+      store.commit('updateDirection', {direction: 'forward'})
+    } else {
+      store.commit('updateDirection', {direction: 'reverse'})
+    }
+  } else {
+    ++historyCount
+    history.setItem('count', historyCount)
+    to.path !== '/' && history.setItem(to.path, historyCount)
+    store.commit('updateDirection', {direction: 'forward'})
+  }
+
+  if (/\/http/.test(to.path)) {
+    let url = to.path.split('http')[1]
+    window.location.href = `http${url}`
+  } else {
+    next()
+  }
+})
 
 new Vue({
   router,
