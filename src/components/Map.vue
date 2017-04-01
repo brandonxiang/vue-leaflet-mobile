@@ -1,6 +1,6 @@
 <template>
     <div class="full-height">
-        <l-map :zoom="zoom" :center="center" :min-zoom="minZoom" :max-zoom="maxZoom">
+        <l-map :zoom="zoom" :center="center" :min-zoom="minZoom" :max-zoom="maxZoom" :attributionControl="attributionControl">
         <l-tilelayer :url="url" :attribution="attribution"></l-tilelayer>
         <l-marker :position="center" :title="title" :opacity="opacity" :draggable="draggable">
         <l-tooltip :content="title"></l-tooltip>
@@ -23,7 +23,8 @@ export default {
       attribution: 'brandon.xiang',
       title: 'test-marker',
       opacity: 1,
-      draggable:false
+      draggable:false,
+      attributionControl:false,
     };
   },
   computed: mapState({
@@ -38,11 +39,7 @@ export default {
 @import "~leaflet/dist/leaflet.css";
 #map {
     width: 100%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 53px;
+    height:100%;
 }
 
 html,

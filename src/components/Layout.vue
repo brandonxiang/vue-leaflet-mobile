@@ -32,10 +32,5 @@ export default {
       }];
     }
   },
-  methods:{
-    itemclick(){
-      console.log(1)
-    }
-  }
 }
 </script>

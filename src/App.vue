@@ -23,7 +23,19 @@ export default {
   },
   computed: mapState({
      direction: state => state.app.direction,
-  })
+     locale: state => state.i18n.locale,
+  }),
+  watch:{
+    locale:'setTitle',
+  },
+  mounted(){
+    this.setTitle()
+  },
+  methods:{
+    setTitle(){
+       document.title = this.$t('vue-leaflet-mobile')
+    }
+  }
 }
 
 </script>

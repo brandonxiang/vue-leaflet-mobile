@@ -13,6 +13,7 @@ import MapCtrl from './components/Map';
 import Discovery from './components/Discovery';
 import About from './components/About';
 import module from './vuex/store';
+import locales from './locales/locales'
 
 FastClick.attach(document.body);
 
@@ -47,8 +48,9 @@ const store = new Vuex.Store({
 Vue.use(vuexI18n.plugin, store);
 Vue.use(VueLeaflet.plugin, store);
 
-Vue.i18n.add('en', require('json-loader!yaml-loader!src/locales/en.yml'));
-Vue.i18n.add('zh-CN', require('json-loader!yaml-loader!src/locales/zh-CN.yml'));
+
+Vue.i18n.add('en', locales['en']);
+Vue.i18n.add('zh-CN', locales['zh-CN']);
 Vue.i18n.set('zh-CN');
 
 
