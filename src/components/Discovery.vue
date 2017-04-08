@@ -1,7 +1,7 @@
 <template>
   <div>
     <grid>
-      <grid-item link="/"  v-for="item in icons" :label="item.title" @on-item-click="changeMarker({cooridnate:item.coordinates,cityName:item.title})">
+      <grid-item link="/"  v-for="item in icons" :label="item.title" @on-item-click="changeMarker({coordinates:item.coordinates,cityName:item.title})">
          <img slot="icon" src="../assets/logo.png">
       </grid-item>
     </grid>

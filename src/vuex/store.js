@@ -6,9 +6,9 @@ const state = {
 };
 
 const mutations = {
-  changeMarker(stat, options) {
-    stat.coordinate = options.coordinate;
-    stat.cityName = options.cityName;
+  changeMarker(stat, {coordinates, cityName}) {
+    stat.coordinate = coordinates;
+    stat.cityName = cityName;
   },
   updateDirection(state, payload) {
     state.direction = payload.direction
