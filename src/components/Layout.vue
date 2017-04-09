@@ -1,8 +1,16 @@
 <template>
     <tabbar>
-      <tabbar-item v-for="item in items" :link="item.link">
-        <img slot="icon" :src="item.logo">
-        <span slot="label">{{item.name}}</span>
+      <tabbar-item link="/" selected>
+        <img slot="icon" :src="require('../assets/map.png')">
+        <span slot="label">{{$t('Map')}}</span>
+      </tabbar-item>
+      <tabbar-item link="/discovery">
+        <img slot="icon" :src="require('../assets/discovery.png')">
+        <span slot="label">{{$t('Discovery')}}</span>
+      </tabbar-item>
+      <tabbar-item link="/setting">
+        <img slot="icon" :src="require('../assets/setting.png')">
+        <span slot="label">{{$t('Setting')}}</span>
       </tabbar-item>
     </tabbar>
 </template>
@@ -14,23 +22,6 @@ export default {
   components: {
     Tabbar,
     TabbarItem
-  },
-  computed:{
-    items:function(){
-      return [{
-        link: "/",
-        logo: require("../assets/map.png"),
-        name: this.$t('Map')
-      },{
-        link: "/discovery",
-        logo: require("../assets/discovery.png"),
-        name: this.$t('Discovery')
-      },{
-        link:"/setting",
-        logo: require("../assets/setting.png"),
-        name: this.$t('Setting')
-      }];
-    }
   },
 }
 </script>

@@ -46,8 +46,6 @@ const store = new Vuex.Store({
 
 Vue.use(vuexI18n.plugin, store);
 Vue.use(VueLeaflet.plugin, store);
-
-
 Vue.i18n.add('en', locales['en']);
 Vue.i18n.add('zh-CN', locales['zh-CN']);
 Vue.i18n.set('zh-CN');
@@ -55,24 +53,24 @@ Vue.i18n.set('zh-CN');
 
 const history = window.sessionStorage
 history.clear()
-let historyCount = history.getItem('count')*1 || 0
-history.setItem('/',0)
+let historyCount = history.getItem('count') * 1 || 0
+history.setItem('/', 0)
 
-router.beforeEach(function(to, from, next){
+router.beforeEach(function (to, from, next) {
   const toIndex = history.getItem(to.path)
   const fromIndex = history.getItem(from.path)
 
-  if(toIndex){
+  if (toIndex) {
     if (toIndex > fromIndex || !fromIndex || (toIndex === '0' && fromIndex === '0')) {
-      store.commit('updateDirection', {direction: 'forward'})
+      store.commit('updateDirection', { direction: 'forward' })
     } else {
-      store.commit('updateDirection', {direction: 'reverse'})
+      store.commit('updateDirection', { direction: 'reverse' })
     }
   } else {
     ++historyCount
     history.setItem('count', historyCount)
     to.path !== '/' && history.setItem(to.path, historyCount)
-    store.commit('updateDirection', {direction: 'forward'})
+    store.commit('updateDirection', { direction: 'forward' })
   }
 
   if (/\/http/.test(to.path)) {
