@@ -1,26 +1,39 @@
 <template>
-  <flexbox :gutter="0" wrap="wrap">
-      <flexbox-item :span="1/4" v-for="city in cities">
-      <div :class="selectedNames.includes(city.name)?'selector active':'selector'">{{$t(city.name)}}</div>
-      </flexbox-item>
+    <flexbox :gutter="0"
+             wrap="wrap">
+        <flexbox-item :span="1/4"
+                      v-for="city in cities">
+            <div v-bind="city"
+                      :class="selectedNames.includes(city.name)?'selector active':'selector'"
+                      @click="TOGGLE_CITY(city.name)">{{$t(city.name)}}</div>
+        </flexbox-item>
     </flexbox>
 </template>
 
 <script>
-import {Flexbox, FlexboxItem} from 'vux'
-import {mapState} from 'vuex'
+import { Flexbox, FlexboxItem, XButton } from 'vux'
+import { mapState, mapMutations } from 'vuex'
 
-export default{
-    components:{
+export default {
+    components: {
         Flexbox,
         FlexboxItem,
+        XButton
     },
-    computed:{
+    computed: {
         ...mapState({
             cities: state => state.app.cities,
             selectedNames: state => state.app.selectedNames,
-        })
+        }),
     },
+    methods: {
+        ...mapMutations([
+            'TOGGLE_CITY',
+        ]),
+        toggleCity(item) {
+            this.TOGGLE_CITY(item)
+        }
+    }
 }
 </script>
 
@@ -34,6 +47,6 @@ export default{
 }
 
 .active {
-  border: 1px solid #4078C0;
+    border: 1px solid #4078C0;
 }
 </style>
