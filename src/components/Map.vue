@@ -2,8 +2,8 @@
     <div class="full-height">
         <l-map :zoom="zoom" :center="center" :min-zoom="minZoom" :max-zoom="maxZoom" :attributionControl="attributionControl">
         <l-tilelayer :url="url" :attribution="attribution"></l-tilelayer>
-        <l-marker :position="center" :title="cityName" :opacity="opacity" :draggable="draggable">
-        <l-tooltip :content="cityName"></l-tooltip>
+        <l-marker :position="center" :title="$t(cityName)" :opacity="opacity" :draggable="draggable">
+        <l-popup :content="$t(cityName)"></l-popup>
         </l-marker>
         </l-map>
     </div>
