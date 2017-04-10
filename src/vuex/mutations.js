@@ -15,7 +15,7 @@ export default {
       state.selectedNames.push(name)
     }
   },
-  updateDirection(state, payload) {
+  UPDATE_DIRECTION(state, payload) {
     state.direction = payload.direction
   },
 }

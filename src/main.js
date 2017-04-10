@@ -43,15 +43,15 @@ router.beforeEach(function(to, from, next){
 
   if(toIndex){
     if (toIndex > fromIndex || !fromIndex || (toIndex === '0' && fromIndex === '0')) {
-      store.commit('updateDirection', {direction: 'forward'})
+      store.commit('UPDATE_DIRECTION', {direction: 'forward'})
     } else {
-      store.commit('updateDirection', {direction: 'reverse'})
+      store.commit('UPDATE_DIRECTION', {direction: 'reverse'})
     }
   } else {
     ++historyCount
     history.setItem('count', historyCount)
     to.path !== '/' && history.setItem(to.path, historyCount)
-    store.commit('updateDirection', {direction: 'forward'})
+    store.commit('UPDATE_DIRECTION', {direction: 'forward'})
   }
 
   if (/\/http/.test(to.path)) {
