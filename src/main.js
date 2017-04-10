@@ -12,7 +12,9 @@ import module from './vuex/store';
 import locales from './locales/locales'
 
 import DevicePlugin from 'vux/src/plugins/device'
+import AjaxPlugin from 'vux/src/plugins/ajax'
 Vue.use(DevicePlugin)
+Vue.use(AjaxPlugin)
 
 FastClick.attach(document.body);
 
