@@ -1,3 +1,3 @@
 export default {
-    selectedCities: (state) => state.cities.filter(city => state.selectedNames.indexOf(city.name) >= 0),
+    selectedCities: (state) => state.cities.filter(city => state.selectedNames.includes(city.name)),
 }

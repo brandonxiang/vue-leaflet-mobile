@@ -1,9 +1,9 @@
 export default {
-  changeMarker(stat, { coordinates, cityName }) {
+  CHANGE_CITY(stat, { coordinates, cityName }) {
     stat.coordinate = coordinates;
     stat.cityName = cityName;
   },
-  deleteCity(state, name){
+  DELETE_CITY(state, name){
     const start = state.selectedNames.indexOf(name)
     state.selectedNames.splice(start,1)
   },

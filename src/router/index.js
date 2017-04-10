@@ -1,13 +1,14 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router';
+import VueRouter from 'vue-router'
 
-import Setting from '../components/Setting';
-import MapCtrl from '../components/Map';
-import Discovery from '../components/Discovery';
-import About from '../components/About';
+import Setting from '../components/Setting'
+import MapCtrl from '../components/Map'
+import Discovery from '../components/Discovery'
+import About from '../components/About'
+import More from '../components/More.vue'
 
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes = [{
   path: '/',
@@ -21,7 +22,10 @@ const routes = [{
 }, {
   path: '/about',
   component: About,
-}];
+}, {
+  path: '/more',
+  component: More,
+}]
 
 const router = new VueRouter({ routes })
 
