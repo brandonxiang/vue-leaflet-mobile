@@ -11,6 +11,9 @@ import App from './App';
 import module from './vuex/store';
 import locales from './locales/locales'
 
+import DevicePlugin from 'vux/src/plugins/device'
+Vue.use(DevicePlugin)
+
 FastClick.attach(document.body);
 
 Vue.use(Vuex);

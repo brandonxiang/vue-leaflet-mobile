@@ -23,5 +23,8 @@ export default {
     Tabbar,
     TabbarItem
   },
+  mounted(){
+    // console.log(this.$device.isWechat);
+  }
 }
 </script>

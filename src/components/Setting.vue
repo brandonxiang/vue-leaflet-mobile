@@ -1,11 +1,17 @@
 <template>
   <div>
-    <blur :blur-amount=40 :url="headImg">
+    <blur :blur-amount=40
+          :url="headImg">
       <p class="center headpart"><img :src="headImg"></p>
     </blur>
     <group>
-      <popup-picker :title="$t('Language')" :data="langs" v-model="currentLang" @on-change="onChange"></popup-picker>
-      <cell :title="$t('About')" link="/about" is-link></cell>
+      <popup-picker :title="$t('Language')"
+                    :data="langs"
+                    v-model="currentLang"
+                    @on-change="onChange"></popup-picker>
+      <cell :title="$t('About')"
+            link="/about"
+            is-link></cell>
     </group>
   </div>
 </template>
@@ -20,33 +26,33 @@ export default {
     Blur,
     PopupPicker,
   },
-  computed:{
-    currentLang:{
-      get:function(){
+  computed: {
+    currentLang: {
+      get: function () {
         const locale = this.$store.state.i18n.locale;
-        if(locale === 'zh-CN'){
+        if (locale === 'zh-CN') {
           return ['中文']
-        }else if(locale === 'en'){
+        } else if (locale === 'en') {
           return ['English']
         }
         return null
       }
     }
   },
-  data () {
+  data() {
     return {
-      headImg:require("../assets/headpart.jpg"),
+      headImg: require("../assets/headpart.jpg"),
       langs: [['中文', 'English']],
     }
   },
   methods: {
-    onChange (val) {
-      if(val[0]==='中文'){
+    onChange(val) {
+      if (val[0] === '中文') {
         this.$i18n.set('zh-CN')
-      }else if(val[0]==='English'){
+      } else if (val[0] === 'English') {
         this.$i18n.set('en')
       }
-     },
+    },
   },
 }
 </script>
@@ -56,7 +62,7 @@ export default {
   text-align: center;
 }
 
-.headpart{
+.headpart {
   padding-top: 20px;
   color: #fff;
   font-size: 18px;
@@ -68,6 +74,7 @@ export default {
   border-radius: 50%;
   border: 4px solid #ececec;
 }
+
 .picker-buttons {
   margin: 0 15px;
 }

@@ -22,6 +22,7 @@ export default {
     "vue-leaflet-mobile":"vue-leaflet-mobile",
   },
   "zh-CN": {
+    "Back": "后退",
     "Language": "语言",
     "Map": "地图",
     "Discovery": "发现",
