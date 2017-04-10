@@ -1,17 +1,17 @@
 <template>
   <div class="vux-1px-t">
     <swipeout>
-      <swipeout-item link="/"
-                    transition-mode="follow"
+      <swipeout-item link="/" 
+                     transition-mode="follow"
                      v-for="item in icons">
         <div slot="right-menu">
           <swipeout-button @click.native="deleteCity()"
                            type="warn">{{$t('Delete')}}</swipeout-button>
         </div>
-        <div slot="content"
-             class="demo-content vux-1px-b" @click="changeMarker({coordinates:item.coordinates,cityName:item.title})">
+        <a slot="content" href="javascript:;" 
+             class="navigator vux-1px-b" @click="onClick(item)">
           {{item.title}}
-        </div>
+        </a>
         </swipeout-item>
     </swipeout>
   </div>
@@ -20,6 +20,7 @@
 <script>
 import { Swipeout, SwipeoutItem,SwipeoutButton, Cell} from 'vux'
 import { mapMutations } from 'vuex'
+import { go } from 'vux/src/libs/router'
 
 export default {
   components: {
@@ -51,6 +52,10 @@ export default {
     ]),
     deleteCity() {
 
+    },
+    onClick(item){
+      go('/',this.$router)
+      this.changeMarker({coordinates:item.coordinates,cityName:item.title})
     }
   }
 }
@@ -67,7 +72,9 @@ export default {
   height: 1rem;
 }
 
-.demo-content {
+.navigator {
+  display: block;
   padding: 10px 10px;
+  color: rgb(0,0,0);
 }
 </style>
