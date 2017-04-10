@@ -1,7 +1,11 @@
+import mutations from './mutations'
+import getters from './getters'
+
 const state = {
   cityName: 'Shenzhen',
   coordinate: [22.5455537937, 114.0544373601],
   direction: 'forward',
+  selectedNames: ['Shenzhen', 'Beijing','Shanghai'],
   cities: [
     { name: 'Shenzhen', coordinates: [22.5455537937, 114.0544373601] },
     { name: 'Beijing', coordinates: [39.9032724643, 116.4009203787] },
@@ -13,19 +17,12 @@ const state = {
     { name: 'Xian', coordinates: [34.3427473471, 108.9351962803] },
     { name: 'Wuhan', coordinates: [30.5951668577, 114.2998018195] }
   ],
+
 };
 
-const mutations = {
-  changeMarker(stat, { coordinates, cityName }) {
-    stat.coordinate = coordinates;
-    stat.cityName = cityName;
-  },
-  updateDirection(state, payload) {
-    state.direction = payload.direction
-  },
-};
 
 export default {
   state,
   mutations,
+  getters,
 };

@@ -3,7 +3,7 @@
     <swipeout>
       <swipeout-item link="/" 
                      transition-mode="follow"
-                     v-for="item in cities">
+                     v-for="item in selectedCities">
         <div slot="right-menu">
           <swipeout-button @click.native="deleteCity(item)"
                            type="warn">{{$t('Delete')}}</swipeout-button>
@@ -20,7 +20,7 @@
 
 <script>
 import { Swipeout, SwipeoutItem,SwipeoutButton, Cell} from 'vux'
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations,mapGetters } from 'vuex'
 import { go } from 'vux/src/libs/router'
 
 export default {
@@ -31,9 +31,9 @@ export default {
     Cell
   },
   computed: {
-    ...mapState({
-      cities: state => state.app.cities, 
-    }),
+    ...mapGetters([
+      "selectedCities"
+    ]),
   },
   methods: {
     ...mapMutations([

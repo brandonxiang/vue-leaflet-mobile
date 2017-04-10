@@ -23,6 +23,7 @@ export default {
   },
   "zh-CN": {
     "Back": "后退",
+    "Delete":"删除",
     "Language": "语言",
     "Map": "地图",
     "Discovery": "发现",
