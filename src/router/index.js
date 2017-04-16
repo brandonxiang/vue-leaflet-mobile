@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Setting from '../components/Setting'
-import MapCtrl from '../components/Map'
-import Discovery from '../components/Discovery'
-import About from '../components/About'
-import More from '../components/More.vue'
-
-
 Vue.use(VueRouter)
+
+//lazy loading components
+const Setting = resolve => require(['../components/Setting'], resolve)
+const MapCtrl = resolve => require(['../components/Map'], resolve)
+const Discovery = resolve => require(['../components/Discovery'], resolve)
+const About = resolve => require(['../components/About'], resolve)
+const More = resolve => require(['../components/More'], resolve)
 
 const routes = [{
   path: '/',
