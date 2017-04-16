@@ -4,11 +4,11 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 //lazy loading components
-const Setting = resolve => require(['../components/Setting'], resolve)
-const MapCtrl = resolve => require(['../components/Map'], resolve)
-const Discovery = resolve => require(['../components/Discovery'], resolve)
-const About = resolve => require(['../components/About'], resolve)
-const More = resolve => require(['../components/More'], resolve)
+const Setting = resolve => require(['../pages/Setting'], resolve)
+const MapCtrl = resolve => require(['../pages/Map'], resolve)
+const Discovery = resolve => require(['../pages/Discovery'], resolve)
+const About = resolve => require(['../pages/About'], resolve)
+const More = resolve => require(['../pages/More'], resolve)
 
 const routes = [{
   path: '/',
