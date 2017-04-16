@@ -20,9 +20,13 @@ npn run build
 
 ## DEMO
 
-[PC DEMO](https://brandonxiang.github.io/vue-leaflet-mobile/dist/)
+[PC DEMO](https://brandonxiang.github.io/vue-leaflet-mobile/www/)
 
 ![Phone DEMO](screen/demo.png)
+
+## Chinese Doc
+
+[CN_DOC](README_CN.md)
 
 ## LICENSE
 
