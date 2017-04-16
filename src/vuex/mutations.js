@@ -1,13 +1,15 @@
+import * as types from './mutation-types'
+
 export default {
-  CHANGE_CITY(stat, { coordinates, cityName }) {
+  [types.CHANGE_CITY](stat, { coordinates, cityName }) {
     stat.coordinate = coordinates;
     stat.cityName = cityName;
   },
-  DELETE_CITY(state, name) {
+  [types.DELETE_CITY](state, name) {
     const start = state.selectedNames.indexOf(name)
     state.selectedNames.splice(start, 1)
   },
-  TOGGLE_CITY(state, name) {
+  [types.TOGGLE_CITY](state, name) {
     if (state.selectedNames.includes(name)) {
       const start = state.selectedNames.indexOf(name)
       state.selectedNames.splice(start, 1)
@@ -15,7 +17,7 @@ export default {
       state.selectedNames.push(name)
     }
   },
-  UPDATE_DIRECTION(state, payload) {
+  [types.UPDATE_DIRECTION](state, payload) {
     state.direction = payload.direction
   },
 }
