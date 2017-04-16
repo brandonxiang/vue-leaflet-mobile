@@ -5,14 +5,14 @@
                       v-for="city in cities">
             <div v-bind="city"
                       :class="selectedNames.includes(city.name)?'selector active':'selector'"
-                      @click="TOGGLE_CITY(city.name)">{{$t(city.name)}}</div>
+                      @click="toggleCity(city.name)">{{$t(city.name)}}</div>
         </flexbox-item>
     </flexbox>
 </template>
 
 <script>
 import { Flexbox, FlexboxItem, XButton } from 'vux'
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
     components: {
@@ -27,12 +27,9 @@ export default {
         }),
     },
     methods: {
-        ...mapMutations([
-            'TOGGLE_CITY',
+        ...mapActions([
+            'toggleCity',
         ]),
-        toggleCity(item) {
-            this.TOGGLE_CITY(item)
-        }
     }
 }
 </script>

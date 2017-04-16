@@ -21,7 +21,7 @@ const state = {
 
 };
 
-
+console.log(actions)
 export default {
   state,
   mutations,
