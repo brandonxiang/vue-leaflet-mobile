@@ -1,14 +1,15 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
-import Vuex from 'vuex';
 import FastClick from 'fastclick';
 import vuexI18n from 'vuex-i18n';
 import VueLeaflet from 'vueleaflet';
+import Sync from 'vuex-router-sync'
 
-import router from './router/index'
+import router from './router'
+import store from './store'
 import App from './App';
-import module from './vuex/store';
+
 import locales from './locales/locales'
 
 import DevicePlugin from 'vux/src/plugins/device'
@@ -18,21 +19,11 @@ Vue.use(AjaxPlugin)
 
 FastClick.attach(document.body);
 
-Vue.use(Vuex);
-
-const store = new Vuex.Store({
-  modules: {
-    i18n: vuexI18n.store,
-    app: module,
-  },
-});
-
 Vue.use(vuexI18n.plugin, store);
 Vue.use(VueLeaflet.plugin, store);
 Vue.i18n.add('en', locales['en']);
 Vue.i18n.add('zh-CN', locales['zh-CN']);
 Vue.i18n.set('zh-CN');
-
 
 const history = window.sessionStorage
 history.clear()

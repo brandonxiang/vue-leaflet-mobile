@@ -28,6 +28,13 @@ npn run build
 
 [CN_DOC](README_CN.md)
 
+## TODO
+
+- [ ] font size depends on window size
+- [ ] ajax for city data
+- [ ] localstorage
+- [ ] vue meta
+
 ## LICENSE
 
 [MIT](LICENSE)
