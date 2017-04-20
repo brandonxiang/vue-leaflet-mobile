@@ -4,7 +4,7 @@ import Vue from 'vue';
 import FastClick from 'fastclick';
 import vuexI18n from 'vuex-i18n';
 import VueLeaflet from 'vueleaflet';
-import Sync from 'vuex-router-sync'
+import {sync} from 'vuex-router-sync'
 
 import router from './router'
 import store from './store'
@@ -54,6 +54,8 @@ router.beforeEach(function(to, from, next){
     next()
   }
 })
+
+sync(store,router)
 
 new Vue({
   router,
