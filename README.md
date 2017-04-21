@@ -34,6 +34,7 @@ npn run build
 - [ ] ajax for city data
 - [ ] localstorage
 - [ ] vue meta
+- [x] vuex router sync
 
 ## LICENSE
 
