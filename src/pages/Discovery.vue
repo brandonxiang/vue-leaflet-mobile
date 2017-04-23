@@ -18,7 +18,7 @@
     </swipeout>
     <a href="javascript:;"
        class="navigator vux-1px-b"
-       @click="moreCity()">{{$t('更多')}}</a>
+       @click="moreCity()">{{$t('More')}}</a>
   </div>
 </template>
 

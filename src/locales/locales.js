@@ -44,5 +44,6 @@ export default {
     "Zhihu": "知乎",
     "WOA": "微信公众号",
     "vue-leaflet-mobile":"小好地图",
+    "More":"更多"
   }
 }

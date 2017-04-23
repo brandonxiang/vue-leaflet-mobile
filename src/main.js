@@ -6,11 +6,16 @@ import vuexI18n from 'vuex-i18n';
 import VueLeaflet from 'vueleaflet';
 import VueMeta from 'vue-meta'
 import { sync } from 'vuex-router-sync'
+import objectAssign from 'object-assign'
+import setFont from './utils/setFont'
 
 import router from './router'
 import store from './store'
 
 import App from './App';
+
+const vuxLocales = require('json-loader!yaml-loader!vux/src/locales/all.yml')
+const componentsLocales = require('json-loader!yaml-loader!vux/src/locales/components.yml')
 import locales from './locales/locales'
 
 import DevicePlugin from 'vux/src/plugins/device'
@@ -24,8 +29,12 @@ Vue.use(VueMeta)
 
 FastClick.attach(document.body);
 
-Vue.i18n.add('en', locales['en']);
-Vue.i18n.add('zh-CN', locales['zh-CN']);
+const finalLocales = {
+  'en': objectAssign(vuxLocales['en'], componentsLocales['en'], locales['en']),
+  'zh-CN': objectAssign(vuxLocales['zh-CN'], componentsLocales['zh-CN'], locales['zh-CN'])
+}
+Vue.i18n.add('en', finalLocales['en']);
+Vue.i18n.add('zh-CN', finalLocales['zh-CN']);
 Vue.i18n.set('zh-CN');
 
 const history = window.sessionStorage
@@ -75,3 +84,8 @@ new Vue({
   }),
   render: h => h(App),
 }).$mount('#app');
+
+// if (window.addEventListener) {
+//   window.addEventListener("resize", setFont, false)
+//   setFont();
+// }
