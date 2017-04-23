@@ -1,75 +1,36 @@
 <template>
-  <div class="vux-1px-t">
-    <swipeout>
-      <swipeout-item link="/"
-                     transition-mode="follow"
-                     v-for="item in selectedCities">
-        <div slot="right-menu">
-          <swipeout-button @click.native="deleteCity(item.name)"
-                           type="warn">{{$t('Delete')}}</swipeout-button>
-        </div>
-        <a slot="content"
-           href="javascript:;"
-           class="navigator vux-1px-b"
-           @click="changeCityClick(item)">
-            {{$t(item.name)}}
-          </a>
-      </swipeout-item>
-    </swipeout>
-    <a href="javascript:;"
-       class="navigator vux-1px-b"
-       @click="moreCity()">{{$t('More')}}</a>
-  </div>
+  <grid>
+    <grid-item  v-for="item in items" :label="item.label" :link="item.link">
+      <img slot="icon" :src="item.img">
+    </grid-item>
+</grid>
 </template>
 
 <script>
-import { Swipeout, SwipeoutItem, SwipeoutButton, Cell } from 'vux'
-import { mapState, mapActions, mapGetters } from 'vuex'
-import { go } from 'vux/src/libs/router'
 
-export default {
-  components: {
-    Swipeout,
-    SwipeoutItem,
-    SwipeoutButton,
-    Cell
-  },
-  computed: {
-    ...mapGetters([
-      "selectedCities"
-    ]),
-  },
-  methods: {
-    ...mapActions([
-      'changeCity',
-      'deleteCity',
-    ]),
-    changeCityClick(item) {
-      go('/', this.$router)
-      this.changeCity({ coordinates: item.coordinates, cityName: item.name })
-    },
-    moreCity() {
-      go('/more', this.$router)
-    },
+import {Grid, GridItem} from 'vux'
 
-  }
+export default{
+  data(){
+    return {
+      items:[{
+        label: "百度",
+        link:"https://www.baidu.com",
+        img: require("../assets/vux_logo.png"),
+      },{
+        label: "滴滴",
+        link:"https://common.diditaxi.com.cn/general/webEntry?code=031RcUHP1bDB5717NpHP1U6KHP1RcUHV&state=123#/",
+        img: require("../assets/vux_logo.png"),
+      },{
+        label: "美团外卖",
+        link:"https://takeaway.dianping.com/waimai/wxwallet#!index/source=redir",
+        img: require("../assets/vux_logo.png"),
+      }]
+    }
+  },
+  components:{
+    Grid,
+    GridItem,
+  },
 }
-
 </script>
-
-<style>
-.vux-demo {
-  text-align: center;
-}
-
-.logo {
-  width: 1rem;
-  height: 1rem;
-}
-
-.navigator {
-  display: block;
-  padding: 10px 10px;
-  color: rgb(0, 0, 0);
-}
-</style>
