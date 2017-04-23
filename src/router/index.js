@@ -4,51 +4,57 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const lazyLoading = false
-let Setting = null
-let MapCtrl = null
-let Cities = null
-let Discovery = null
-let About = null
-let More = null
+let routes = null
 
 
 if (lazyLoading) {
   //lazy loading components
-  Setting = resolve => require(['../pages/Setting'], resolve)
-  MapCtrl = resolve => require(['../pages/Map'], resolve)
-  Cities = resolve => require(['../pages/Cities', resolve])
-  Discovery = resolve => require(['../pages/Discovery'], resolve)
-  About = resolve => require(['../pages/About'], resolve)
-  More = resolve => require(['../pages/More'], resolve)
+ const routes = [
+    {
+      path: '/',
+      component: resolve => require(['../pages/Map'], resolve),
+    }, {
+      path: '/setting',
+      component: resolve => require(['../pages/Setting'], resolve),
+    }, {
+      path: '/cities',
+      component: resolve => require(['../pages/Cities'], resolve),
+    }, {
+      path: '/discovery',
+      component: resolve => require(['../pages/Discovery'], resolve),
+    }, {
+      path: '/about',
+      component: resolve => require(['../pages/About'], resolve),
+    }, {
+      path: '/more',
+      component: resolve => require(['../pages/More'], resolve),
+    }
+  ]
 }
 else {
-  Setting = require('../pages/Setting')
-  MapCtrl = require('../pages/Map')
-  Cities = require('../pages/Cities')
-  Discovery = require('../pages/Discovery')
-  About = require('../pages/About')
-  More = require('../pages/More')
+  routes = [
+    {
+      path: '/',
+      component: require('../pages/Map'),
+    }, {
+      path: '/setting',
+      component: require('../pages/Setting'),
+    }, {
+      path: '/cities',
+      component: require('../pages/Cities'),
+    }, {
+      path: '/discovery',
+      component: require('../pages/Discovery'),
+    }, {
+      path: '/about',
+      component: require('../pages/About'),
+    }, {
+      path: '/more',
+      component: require('../pages/More'),
+    }
+  ]
 }
 
-const routes = [{
-  path: '/',
-  component: MapCtrl,
-}, {
-  path: '/setting',
-  component: Setting,
-}, {
-  path: '/cities',
-  component: Cities,
-}, {
-  path: '/discovery',
-  component: Discovery,
-}, {
-  path: '/about',
-  component: About,
-}, {
-  path: '/more',
-  component: More,
-}]
 
 const router = new VueRouter({ routes })
 
