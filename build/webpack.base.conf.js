@@ -3,6 +3,7 @@ var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
 const vuxLoader = require('vux-loader')
+var px2rem = require('postcss-px2rem')
 
 var env = process.env.NODE_ENV
 // check env & config/index.js to decide whether to enable CSS source maps for the
@@ -25,7 +26,7 @@ let webpackConfig = {
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
       'vue$': 'vue/dist/vue.common.js',
-      'src': path.resolve(__dirname, '../src'),
+      '@': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
       'components': path.resolve(__dirname, '../src/components')
     }
@@ -74,7 +75,8 @@ let webpackConfig = {
     postcss: [
       require('autoprefixer')({
         browsers: ['last 7 versions']
-      })
+      }),
+      // px2rem({remUnit: 75})
     ]
   }
 }

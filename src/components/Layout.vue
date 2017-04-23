@@ -4,6 +4,10 @@
         <img slot="icon" :src="require('../assets/map.png')">
         <span slot="label">{{$t('Map')}}</span>
       </tabbar-item>
+      <tabbar-item link="/cities">
+        <img slot="icon" :src="require('../assets/discovery.png')">
+        <span slot="label">{{$t('Cities')}}</span>
+      </tabbar-item>
       <tabbar-item link="/discovery">
         <img slot="icon" :src="require('../assets/discovery.png')">
         <span slot="label">{{$t('Discovery')}}</span>

@@ -3,12 +3,32 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-//lazy loading components
-const Setting = resolve => require(['../pages/Setting'], resolve)
-const MapCtrl = resolve => require(['../pages/Map'], resolve)
-const Discovery = resolve => require(['../pages/Discovery'], resolve)
-const About = resolve => require(['../pages/About'], resolve)
-const More = resolve => require(['../pages/More'], resolve)
+const lazyLoading = false
+let Setting = null
+let MapCtrl = null
+let Cities = null
+let Discovery = null
+let About = null
+let More = null
+
+
+if (lazyLoading) {
+  //lazy loading components
+  Setting = resolve => require(['../pages/Setting'], resolve)
+  MapCtrl = resolve => require(['../pages/Map'], resolve)
+  Cities = resolve => require(['../pages/Cities', resolve])
+  Discovery = resolve => require(['../pages/Discovery'], resolve)
+  About = resolve => require(['../pages/About'], resolve)
+  More = resolve => require(['../pages/More'], resolve)
+}
+else {
+  Setting = require('../pages/Setting')
+  MapCtrl = require('../pages/Map')
+  Cities = require('../pages/Cities')
+  Discovery = require('../pages/Discovery')
+  About = require('../pages/About')
+  More = require('../pages/More')
+}
 
 const routes = [{
   path: '/',
@@ -16,6 +36,9 @@ const routes = [{
 }, {
   path: '/setting',
   component: Setting,
+}, {
+  path: '/cities',
+  component: Cities,
 }, {
   path: '/discovery',
   component: Discovery,
