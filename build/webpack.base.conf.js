@@ -3,7 +3,7 @@ var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
 const vuxLoader = require('vux-loader')
-var px2rem = require('postcss-px2rem')
+// var px2rem = require('postcss-px2rem')
 
 var env = process.env.NODE_ENV
 // check env & config/index.js to decide whether to enable CSS source maps for the
