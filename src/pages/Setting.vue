@@ -1,22 +1,19 @@
 <template>
   <div>
-    <blur :blur-amount=40
-          :url="headImg">
-      <p class="center headpart"><img :src="headImg"></p>
+    <blur :blur-amount=40 :url="headImg">
+      <p class="center headpart">
+        <img :src="headImg">
+      </p>
     </blur>
     <group>
-      <popup-picker :title="$t('Language')"
-                    :data="langs"
-                    v-model="currentLang"
-                    @on-change="onChange"></popup-picker>
-      <cell :title="$t('About')"
-            link="/about"
-            is-link></cell>
+      <popup-picker :title="$t('Language')" :data="langs" v-model="currentLang" @on-change="onChange"></popup-picker>
+      <cell :title="$t('About')" link="/about" is-link></cell>
     </group>
   </div>
 </template>
 
 <script>
+import {mapMutations} from 'vuex'
 import { Group, Cell, Blur, PopupPicker } from 'vux'
 
 export default {
@@ -26,6 +23,7 @@ export default {
     Blur,
     PopupPicker,
   },
+
   computed: {
     currentLang: {
       get: function () {
@@ -39,13 +37,16 @@ export default {
       }
     }
   },
+
   data() {
     return {
       headImg: require("../assets/headpart.jpg"),
       langs: [['中文', 'English']],
     }
   },
+
   methods: {
+    ...mapMutations(['SET_TITLE']),
     onChange(val) {
       if (val[0] === '中文') {
         this.$i18n.set('zh-CN')
@@ -54,6 +55,11 @@ export default {
       }
     },
   },
+
+  mounted() {
+    this.SET_TITLE(this.$t('Setting'))
+  },
+
 }
 </script>
 

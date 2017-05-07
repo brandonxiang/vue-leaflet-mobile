@@ -19,20 +19,32 @@
 </template>
 
 <script>
+import {mapMutations} from 'vuex'
 import {Qrcode,Blur,Group,Cell} from 'vux'
 
 export default {
+    name:'about',
+
     components:{
         Qrcode,
         Blur,
         Group,
         Cell,
     },
+
     data() {
         return {
             headImg: require("../assets/headpart.jpg"),
             QrImg: require("../assets/qrcode.jpg"),
         }
+    },
+
+    mounted(){
+        this.SET_TITLE(this.$t('About'))
+    },
+
+    methods:{
+        ...mapMutations(['SET_TITLE'])
     }
 }
 </script>

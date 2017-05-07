@@ -1,16 +1,13 @@
 <template>
-    <flexbox :gutter="0"
-             wrap="wrap">
-        <flexbox-item :span="1/4"
-                      v-for="city in cities">
-            <div v-bind="city"
-                      :class="selectedNames.includes(city.name)?'selector active':'selector'"
-                      @click="toggleCity(city.name)">{{$t(city.name)}}</div>
+    <flexbox :gutter="0" wrap="wrap">
+        <flexbox-item :span="1/4" v-for="city in cities">
+            <div v-bind="city" :class="selectedNames.includes(city.name)?'selector active':'selector'" @click="toggleCity(city.name)">{{$t(city.name)}}</div>
         </flexbox-item>
     </flexbox>
 </template>
 
 <script>
+import {mapMutations} from 'vuex'
 import { Flexbox, FlexboxItem, XButton } from 'vux'
 import { mapState, mapActions } from 'vuex'
 
@@ -20,17 +17,26 @@ export default {
         FlexboxItem,
         XButton
     },
+
     computed: {
         ...mapState({
             cities: state => state.app.cities,
             selectedNames: state => state.app.selectedNames,
         }),
     },
+
     methods: {
+        ...mapMutations(['SET_TITLE']),
         ...mapActions([
             'toggleCity',
         ]),
-    }
+    },
+
+    mounted() {
+        this.SET_TITLE(this.$t('Discovery'))
+    },
+
+
 }
 </script>
 

@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import { Tabbar, TabbarItem } from 'vux'
 
 export default {
@@ -27,8 +28,7 @@ export default {
     Tabbar,
     TabbarItem
   },
-  mounted(){
-    // console.log(this.$device.isWechat);
+  methods:{
   }
 }
 </script>

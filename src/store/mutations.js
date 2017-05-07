@@ -1,9 +1,12 @@
 import * as types from './mutation-types'
 
 export default {
-  [types.CHANGE_CITY](stat, { coordinates, cityName }) {
-    stat.coordinate = coordinates;
-    stat.cityName = cityName;
+  [types.SET_TITLE](state, title){
+    state.title = title
+  },
+  [types.CHANGE_CITY](state, { coordinates, cityName }) {
+    state.coordinate = coordinates;
+    state.cityName = cityName;
   },
   [types.DELETE_CITY](state, name) {
     const start = state.selectedNames.indexOf(name)

@@ -1,7 +1,7 @@
 <template>
   <div style="height:100%;">
     <view-box ref="viewBox">
-      <x-header v-show="!isWechat" :left-options="{showBack: true, backText:back}">{{title}}</x-header>
+      <x-header :left-options="{showBack: false}">{{title}}</x-header>
       <transition :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
         <router-view class="router-view"></router-view>
       </transition>
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 import { ViewBox, XHeader } from 'vux';
 import Layout from './components/Layout'
 
@@ -21,16 +21,15 @@ export default {
     Layout,
     XHeader,
   },
+
   computed: {
     ...mapState({
-      direction: state => state.app.direction,
       locale: state => state.i18n.locale,
     }),
-    title: {
-      get:function(){
-        return this.$t('vue-leaflet-mobile')
-      }
-    },
+    ...mapGetters([
+      "title",
+      "direction"
+    ]),
     back:{
       get:function(){
         return this.$t('Back')
@@ -46,10 +45,10 @@ export default {
     }
   },
   created(){
-    this.isWechat= this.$device.isWechat
+    // this.isWechat= this.$device.isWechat
+    // this.title = this.$t('Map')
   },
   mounted() {
-    this.setTitle()
   },
 }
 

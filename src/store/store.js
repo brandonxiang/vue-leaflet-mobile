@@ -1,8 +1,9 @@
 import mutations from './mutations'
-import getters from './getters'
-import actions from './actions'
+import * as getters from './getters'
+import * as actions from './actions'
 
 const state = {
+  title:'地图',
   cityName: 'Shenzhen',
   coordinate: [22.5455537937, 114.0544373601],
   direction: 'forward',
@@ -21,7 +22,6 @@ const state = {
 
 };
 
-console.log(actions)
 export default {
   state,
   mutations,
