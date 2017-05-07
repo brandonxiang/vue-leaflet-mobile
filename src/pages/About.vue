@@ -1,7 +1,9 @@
 <template>
     <div>
         <blur :blur-amount=40 :url="headImg">
-            <p class="center headpart"><img :src="headImg"></p>
+            <p class="center headpart">
+                <img :src="headImg">
+            </p>
         </blur>
         <group>
             <cell :title="$t('Name')" value="项伟平"></cell>
@@ -19,13 +21,13 @@
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
-import {Qrcode,Blur,Group,Cell} from 'vux'
+import { mapMutations } from 'vuex'
+import { Qrcode, Blur, Group, Cell } from 'vux'
 
 export default {
-    name:'about',
+    name: 'about',
 
-    components:{
+    components: {
         Qrcode,
         Blur,
         Group,
@@ -39,12 +41,13 @@ export default {
         }
     },
 
-    mounted(){
+    mounted() {
         this.SET_TITLE(this.$t('About'))
+        this.SET_RIGHT_OPTION({ show: false })
     },
 
-    methods:{
-        ...mapMutations(['SET_TITLE'])
+    methods: {
+        ...mapMutations(['SET_TITLE', 'SET_RIGHT_OPTION'])
     }
 }
 </script>

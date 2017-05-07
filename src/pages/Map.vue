@@ -44,10 +44,11 @@ export default {
     mounted() {
         (new locateControl()).addTo(this.map)
         this.SET_TITLE(this.$t('Map'))
+        this.SET_RIGHT_OPTION({show:true,name:'城市',link:'cities',})
     },
 
     methods: {
-        ...mapMutations(['SET_TITLE'])
+        ...mapMutations(['SET_TITLE','SET_RIGHT_OPTION'])
     }
 }
 

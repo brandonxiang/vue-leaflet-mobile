@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
+import { mapMutations } from 'vuex'
 import { Group, Cell, Blur, PopupPicker } from 'vux'
 
 export default {
@@ -46,7 +46,7 @@ export default {
   },
 
   methods: {
-    ...mapMutations(['SET_TITLE']),
+    ...mapMutations(['SET_TITLE', 'SET_RIGHT_OPTION']),
     onChange(val) {
       if (val[0] === '中文') {
         this.$i18n.set('zh-CN')
@@ -58,6 +58,7 @@ export default {
 
   mounted() {
     this.SET_TITLE(this.$t('Setting'))
+    this.SET_RIGHT_OPTION({ show: false })
   },
 
 }

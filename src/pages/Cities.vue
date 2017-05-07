@@ -5,20 +5,19 @@
         <div slot="right-menu">
           <swipeout-button @click.native="deleteCity(item.name)" type="warn">{{$t('Delete')}}</swipeout-button>
         </div>
-        <a slot="content" href="javascript:;" class="navigator vux-1px-b" @click="changeCityClick(item)">
+        <a slot="content" href="#/" class="navigator vux-1px-b" @click="changeCity(item)">
           {{$t(item.name)}}
         </a>
       </swipeout-item>
     </swipeout>
-    <a href="javascript:;" class="navigator vux-1px-b" @click="moreCity()">{{$t('More')}}</a>
+    <a href="#/more" class="navigator vux-1px-b">{{$t('More')}}</a>
   </div>
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
+import { mapMutations } from 'vuex'
 import { Swipeout, SwipeoutItem, SwipeoutButton, Cell } from 'vux'
 import { mapState, mapActions, mapGetters } from 'vuex'
-import { go } from 'vux/src/libs/router'
 
 export default {
 
@@ -37,24 +36,15 @@ export default {
 
   mounted() {
     this.SET_TITLE(this.$t('Cities'))
+    this.SET_RIGHT_OPTION({ show: false })
   },
 
   methods: {
-    ...mapMutations(['SET_TITLE']),
+    ...mapMutations(['SET_TITLE', 'SET_RIGHT_OPTION']),
     ...mapActions([
       'changeCity',
       'deleteCity',
     ]),
-    changeCityClick(item) {
-      go('/', this.$router)
-      this.changeCity({ coordinates: item.coordinates, cityName: item.name })
-    },
-    moreCity() {
-      go('/more', this.$router)
-    },
-
-
-
   }
 }
 

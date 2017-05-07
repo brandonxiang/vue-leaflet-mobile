@@ -1,7 +1,10 @@
 <template>
   <div style="height:100%;">
     <view-box ref="viewBox">
-      <x-header :left-options="{showBack: false}">{{title}}</x-header>
+      <x-header :left-options="{showBack: false}">
+        {{title}}
+        <a v-show="rightOption.show" slot="right" :href="'#/'+rightOption.link">{{rightOption.name}}</a>
+      </x-header>
       <transition :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
         <router-view class="router-view"></router-view>
       </transition>
@@ -28,7 +31,8 @@ export default {
     }),
     ...mapGetters([
       "title",
-      "direction"
+      "direction",
+      'rightOption'
     ]),
     back:{
       get:function(){
@@ -36,18 +40,22 @@ export default {
       }
     }
   },
+
   watch: {
     locale: 'setTitle',
   },
+
   methods: {
     setTitle() {
       document.title = this.$t('vue-leaflet-mobile')
     }
   },
+
   created(){
     // this.isWechat= this.$device.isWechat
     // this.title = this.$t('Map')
   },
+
   mounted() {
   },
 }

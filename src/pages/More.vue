@@ -1,7 +1,8 @@
 <template>
     <flexbox :gutter="0" wrap="wrap">
         <flexbox-item :span="1/4" v-for="city in cities">
-            <div v-bind="city" :class="selectedNames.includes(city.name)?'selector active':'selector'" @click="toggleCity(city.name)">{{$t(city.name)}}</div>
+            <div v-bind="city" :class="selectedNames.includes(city.name)?'selector active':'selector'" 
+            @click="toggleCity(city.name)">{{$t(city.name)}}</div>
         </flexbox-item>
     </flexbox>
 </template>
@@ -9,7 +10,7 @@
 <script>
 import {mapMutations} from 'vuex'
 import { Flexbox, FlexboxItem, XButton } from 'vux'
-import { mapState, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
     components: {
@@ -19,21 +20,20 @@ export default {
     },
 
     computed: {
-        ...mapState({
-            cities: state => state.app.cities,
-            selectedNames: state => state.app.selectedNames,
-        }),
+        ...mapGetters([
+            'cities',
+            'selectedNames',
+        ]),
     },
 
     methods: {
-        ...mapMutations(['SET_TITLE']),
-        ...mapActions([
-            'toggleCity',
-        ]),
+        ...mapMutations(['SET_TITLE','SET_RIGHT_OPTION']),
+        ...mapActions(['toggleCity',]),
     },
 
     mounted() {
         this.SET_TITLE(this.$t('Discovery'))
+        this.SET_RIGHT_OPTION({show:false})
     },
 
 

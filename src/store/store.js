@@ -4,10 +4,17 @@ import * as actions from './actions'
 
 const state = {
   title:'地图',
-  cityName: 'Shenzhen',
-  coordinate: [22.5455537937, 114.0544373601],
   direction: 'forward',
-  selectedNames: ['Shenzhen', 'Beijing','Shanghai'],
+  map:{
+    cityName: 'Shenzhen',
+    coordinate: [22.5455537937, 114.0544373601],
+    selectedNames: ['Shenzhen', 'Beijing','Shanghai'],
+  },
+  rightOption:{
+    show: true,
+    name:'城市',
+    link:'cities',
+  },
   cities: [
     { name: 'Shenzhen', coordinates: [22.5455537937, 114.0544373601] },
     { name: 'Beijing', coordinates: [39.9032724643, 116.4009203787] },
