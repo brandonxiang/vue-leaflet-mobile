@@ -9,6 +9,7 @@ let routes = null
 
 if (lazyLoading) {
   //lazy loading components
+<<<<<<< HEAD
  const routes = [
     {
       path: '/',
@@ -30,6 +31,14 @@ if (lazyLoading) {
       component: resolve => require(['../pages/More'], resolve),
     }
   ]
+=======
+  Setting = resolve => require(['../pages/Setting'], resolve)
+  MapCtrl = resolve => require(['../pages/Map'], resolve)
+  Cities = resolve => require(['../pages/Cities'], resolve)
+  Discovery = resolve => require(['../pages/Discovery'], resolve)
+  About = resolve => require(['../pages/About'], resolve)
+  More = resolve => require(['../pages/More'], resolve)
+>>>>>>> fff869a76a76c4614f0a68d3bed6b5a01a9aaab3
 }
 else {
   routes = [

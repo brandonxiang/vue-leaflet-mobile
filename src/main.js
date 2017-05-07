@@ -15,7 +15,7 @@ import store from './store'
 import App from './App';
 
 const vuxLocales = require('json-loader!yaml-loader!vux/src/locales/all.yml')
-const componentsLocales = require('json-loader!yaml-loader!vux/src/locales/components.yml')
+// const componentsLocales = require('json-loader!yaml-loader!vux/src/locales/components.yml')
 import locales from './locales/locales'
 
 import DevicePlugin from 'vux/src/plugins/device'
@@ -30,8 +30,8 @@ Vue.use(VueMeta)
 FastClick.attach(document.body);
 
 const finalLocales = {
-  'en': objectAssign(vuxLocales['en'], componentsLocales['en'], locales['en']),
-  'zh-CN': objectAssign(vuxLocales['zh-CN'], componentsLocales['zh-CN'], locales['zh-CN'])
+  'en': objectAssign(vuxLocales['en'], locales['en']),
+  'zh-CN': objectAssign(vuxLocales['zh-CN'], locales['zh-CN'])
 }
 Vue.i18n.add('en', finalLocales['en']);
 Vue.i18n.add('zh-CN', finalLocales['zh-CN']);
