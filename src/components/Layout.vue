@@ -4,9 +4,9 @@
         <img slot="icon" :src="require('../assets/map.png')">
         <span slot="label">{{$t('Map')}}</span>
       </tabbar-item>
-      <tabbar-item link="/cities">
+      <tabbar-item link="/weather">
         <img slot="icon" :src="require('../assets/cities.png')">
-        <span slot="label">{{$t('Cities')}}</span>
+        <span slot="label">{{$t('Weather')}}</span>
       </tabbar-item>
       <tabbar-item link="/discovery">
         <img slot="icon" :src="require('../assets/discovery.png')">

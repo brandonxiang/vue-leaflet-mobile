@@ -30,11 +30,6 @@ export default {
     },
 
     computed: {
-        ...mapState({
-            center: state => state.app.coordinate,
-            cityName: state => state.app.cityName,
-            map: state => state.VL.map,
-        }),
         ...mapGetters([
             'center',
             'cityName',
@@ -42,13 +37,13 @@ export default {
     },
 
     mounted() {
-        (new locateControl()).addTo(this.map)
         this.SET_TITLE(this.$t('Map'))
-        this.SET_RIGHT_OPTION({show:true,name:'城市',link:'cities',})
+        this.SET_RIGHT_OPTION({ show: true, name: '城市', link: 'cities' })
+        this.addControl(new locateControl())
     },
 
     methods: {
-        ...mapMutations(['SET_TITLE','SET_RIGHT_OPTION'])
+        ...mapMutations(['SET_TITLE', 'SET_RIGHT_OPTION', 'addControl'])
     }
 }
 
