@@ -9,6 +9,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.16.1",
     "fastclick": "^1.0.6",
     "leaflet": "^1.0.2",
     "leaflet.locatecontrol": "^0.60.0",

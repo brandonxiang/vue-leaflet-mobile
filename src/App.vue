@@ -3,7 +3,8 @@
     <view-box ref="viewBox">
       <x-header :left-options="{showBack: false}">
         {{title}}
-        <a v-show="rightOption.show" slot="right" :href="'#/'+rightOption.link">{{rightOption.name}}</a>
+        <router-link v-if="rightOption.show" slot="right"
+         :to="rightOption.link">{{rightOption.name}}</router-link>
       </x-header>
       <transition :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
         <router-view class="router-view"></router-view>

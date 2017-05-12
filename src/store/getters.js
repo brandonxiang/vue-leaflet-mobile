@@ -11,3 +11,7 @@ export const selectedCities =  (state) => state.cities.filter(city => state.map.
 export const cities = state => state.cities
 
 export const rightOption = state => state.rightOption
+
+export const now = state => state.now
+
+export const future = state => state.future

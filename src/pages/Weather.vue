@@ -20,40 +20,12 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters} from 'vuex'
 
 export default {
-    data() {
-        return {
-            now: {
-                cityName: 'Shenzhen',
-                text: 'Sunny',
-                temperature: 20,
-            },
-            future: [
-                {
-                    day: '今日',
-                    codeDay: '1',
-                    codeNight: '2',
-                    high: 25,
-                    low: 20,
-                },
-                {
-                    day: '明天',
-                    codeDay: '1',
-                    codeNight: '2',
-                    high: 25,
-                    low: 20,
-                },
-                {
-                    day: '后天',
-                    codeDay: '1',
-                    codeNight: '2',
-                    high: 25,
-                    low: 20,
-                },
-            ]
-        }
+
+    computed:{
+        ...mapGetters(['now', 'future'])
     },
 
     mounted() {

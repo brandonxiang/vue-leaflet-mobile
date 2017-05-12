@@ -1,0 +1,2 @@
+import {weatherhost} from './api'
+

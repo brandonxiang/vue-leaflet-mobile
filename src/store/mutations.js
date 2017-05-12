@@ -30,5 +30,13 @@ export default {
 
   [types.SET_RIGHT_OPTION](state, rightOption){
     state.rightOption = rightOption
+  },
+
+  [types.SET_NOW_WEATHER](state, now){
+    state.now = now
+  },
+
+  [types.SET_FUTURE_WEATHER](state, future){
+    state.future = future
   }
 }
