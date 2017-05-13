@@ -5,12 +5,12 @@
         <div slot="right-menu">
           <swipeout-button @click.native="deleteCity(item.name)" type="warn">{{$t('Delete')}}</swipeout-button>
         </div>
-        <a slot="content" href="#/" class="navigator vux-1px-b" @click="changeCity(item)">
+        <router-link slot="content" to="/" class="navigator vux-1px-b" @click="changeCity(item)">
           {{$t(item.name)}}
-        </a>
+        </router-link>
       </swipeout-item>
     </swipeout>
-    <a href="#/more" class="navigator vux-1px-b">{{$t('More')}}</a>
+    <router-link to="more" class="navigator vux-1px-b">{{$t('More')}}</router-link>
   </div>
 </template>
 

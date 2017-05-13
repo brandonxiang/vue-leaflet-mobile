@@ -11,16 +11,17 @@ export default {
   },
 
   [types.DELETE_CITY](state, name) {
-    const start = state.selectedNames.indexOf(name)
-    state.selectedNames.splice(start, 1)
+    const start = state.map.selectedNames.indexOf(name)
+    state.map.selectedNames.splice(start, 1)
   },
 
   [types.TOGGLE_CITY](state, name) {
-    if (state.selectedNames.includes(name)) {
-      const start = state.selectedNames.indexOf(name)
-      state.selectedNames.splice(start, 1)
+    console.log(state.map.selectedNames)
+    if (state.map.selectedNames.includes(name)) {
+      const start = state.map.selectedNames.indexOf(name)
+      state.map.selectedNames.splice(start, 1)
     } else {
-      state.selectedNames.push(name)
+      state.map.selectedNames.push(name)
     }
   },
 

@@ -1,7 +1,7 @@
 <template>
     <flexbox :gutter="0" wrap="wrap">
         <flexbox-item :span="1/4" v-for="city in cities">
-            <div v-bind="city" :class="selectedNames.includes(city.name)?'selector active':'selector'" 
+            <div v-bind="city" :class="checkSelect(city.name)" 
             @click="toggleCity(city.name)">{{$t(city.name)}}</div>
         </flexbox-item>
     </flexbox>
@@ -22,13 +22,21 @@ export default {
     computed: {
         ...mapGetters([
             'cities',
-            'selectedNames',
+            'selectedCities',
         ]),
     },
 
     methods: {
         ...mapMutations(['SET_TITLE','SET_RIGHT_OPTION']),
-        ...mapActions(['toggleCity',]),
+        ...mapActions(['toggleCity']),
+        checkSelect(name){
+            for(let city of this.selectedCities){
+                if(city.name === name){
+                    return 'selector active'
+                }
+            }
+            return 'selector'
+        }
     },
 
     mounted() {
