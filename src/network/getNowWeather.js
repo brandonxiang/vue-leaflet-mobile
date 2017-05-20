@@ -1,2 +1,0 @@
-import {weatherhost} from './api'
-

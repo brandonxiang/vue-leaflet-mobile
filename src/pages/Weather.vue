@@ -9,9 +9,9 @@
             <div class="vux-1px-t vux-1px-b future-box" v-for="item in future">
                 <span class="future-text">{{item.day}}</span>
                 <span class="future-text">日</span>
-                <img class="future-img" :src="require(`../assets/weather/${item.codeDay}.png`)">
+                <img class="future-img" :src="require(`../assets/weather/${item.code_day}.png`)">
                 <span class="future-text">夜</span>
-                <img class="future-img" :src="require(`../assets/weather/${item.codeNight}.png`)">
+                <img class="future-img" :src="require(`../assets/weather/${item.code_night}.png`)">
                 <span class="future-text">{{item.high}}</span>
                 <span class="future-text">{{item.low}}</span>
             </div>
@@ -20,12 +20,18 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters} from 'vuex'
+
+import { mapMutations, mapGetters, mapActions} from 'vuex'
 
 export default {
 
     computed:{
         ...mapGetters(['now', 'future'])
+    },
+
+    created(){
+        const fetch = [this.loadNowWeather(), this.loadDailyWeather()]
+        Promise.all(fetch)
     },
 
     mounted() {
@@ -34,7 +40,8 @@ export default {
     },
 
     methods: {
-        ...mapMutations(['SET_TITLE','SET_RIGHT_OPTION'])
+        ...mapMutations(['SET_TITLE','SET_RIGHT_OPTION']),
+        ...mapActions(['loadNowWeather','loadDailyWeather'])
     }
 }
 </script>

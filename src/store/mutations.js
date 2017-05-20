@@ -34,10 +34,13 @@ export default {
   },
 
   [types.SET_NOW_WEATHER](state, now){
-    state.now = now
+    state.now = Object.assign(state.now, now)
   },
 
   [types.SET_FUTURE_WEATHER](state, future){
     state.future = future
+    state.future[0].day = '今日'
+    state.future[1].day = '明天'
+    state.future[2].day = '后天'
   }
 }

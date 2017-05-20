@@ -1,46 +1,37 @@
 <template>
-  <grid>
-    <grid-item v-for="item in items" :label="item.label" :link="item.link">
-      <img slot="icon" :src="item.img">
-    </grid-item>
-  </grid>
+  <panel header="我的博客" :footer="footer" :list="list" :type="type"></panel>
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
-import { Grid, GridItem } from 'vux'
+   import {Panel} from 'vux'
+    
+    export default {
+        components:{
+            Panel,
+        },
 
-export default {
-  data() {
-    return {
-      items: [{
-        label: "百度",
-        link: "https://www.baidu.com",
-        img: require("../assets/vux_logo.png"),
-      }, {
-        label: "滴滴",
-        link: "https://common.diditaxi.com.cn/general/webEntry?code=031RcUHP1bDB5717NpHP1U6KHP1RcUHV&state=123#/",
-        img: require("../assets/vux_logo.png"),
-      }, {
-        label: "美团外卖",
-        link: "https://takeaway.dianping.com/waimai/wxwallet#!index/source=redir",
-        img: require("../assets/vux_logo.png"),
-      }]
+        data(){
+            return {
+                type:'1',
+                list: [{
+                    src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
+                    title: '标题一',
+                    desc: '由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。',
+                    url: '/component/cell'
+                }, {
+                    src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
+                    title: '标题二',
+                    desc: '由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。',
+                    url: {
+                    path: '/component/radio',
+                    replace: false
+                    }
+                }],
+                footer: {
+                    title: '查看更多',
+                    url: 'http://vux.li'
+                }
+            }
+        }
     }
-  },
-
-  components: {
-    Grid,
-    GridItem,
-  },
-
-  mounted() {
-    this.SET_TITLE(this.$t('Discovery'))
-    this.SET_RIGHT_OPTION({show:false})
-  },
-
-  methods: {
-    ...mapMutations(['SET_TITLE','SET_RIGHT_OPTION'])
-  }
-}
 </script>

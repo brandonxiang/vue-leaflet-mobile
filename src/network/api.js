@@ -1,3 +1,4 @@
+export const WEATHERUID = 'U4B4E3B9B9'
 export const WEATHERKEY = '5wetuvenll5qucca'
 export const AMAPKEY = 'ea889682997a181fd6678d9aaf23693a'
 export const weatherhost = 'https://api.thinkpage.cn/v3/weather'

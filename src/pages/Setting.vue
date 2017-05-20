@@ -9,12 +9,14 @@
       <popup-picker :title="$t('Language')" :data="langs" v-model="currentLang" @on-change="onChange"></popup-picker>
       <cell :title="$t('About')" link="/about" is-link></cell>
     </group>
+    <grid-link></grid-link>
   </div>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
 import { Group, Cell, Blur, PopupPicker } from 'vux'
+import GridLink from '../components/GridLink'
 
 export default {
   components: {
@@ -22,6 +24,7 @@ export default {
     Cell,
     Blur,
     PopupPicker,
+    GridLink,
   },
 
   computed: {
