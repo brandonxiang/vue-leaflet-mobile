@@ -1,10 +1,12 @@
 <template>
+<div>
     <flexbox :gutter="0" wrap="wrap">
         <flexbox-item :span="1/4" v-for="city in cities">
             <div v-bind="city" :class="checkSelect(city.name)" 
             @click="toggleCity(city.name)">{{$t(city.name)}}</div>
         </flexbox-item>
     </flexbox>
+    </div>
 </template>
 
 <script>

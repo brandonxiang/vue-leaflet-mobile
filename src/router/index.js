@@ -3,13 +3,13 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-const lazyLoading = false
+const lazyLoading = true
 let routes = null
 
 
 if (lazyLoading) {
   //lazy loading components
- const routes = [
+  routes = [
     {
       path: '/',
       component: resolve => require(['../pages/Map'], resolve),

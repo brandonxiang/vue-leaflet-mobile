@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
 import { Grid, GridItem, Card } from 'vux'
 
 export default {
@@ -36,14 +35,5 @@ export default {
     GridItem,
     Card
   },
-
-  mounted() {
-    this.SET_TITLE(this.$t('Discovery'))
-    this.SET_RIGHT_OPTION({show:false})
-  },
-
-  methods: {
-    ...mapMutations(['SET_TITLE','SET_RIGHT_OPTION'])
-  }
 }
 </script>

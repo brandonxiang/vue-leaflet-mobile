@@ -3,6 +3,8 @@
 </template>
 
 <script>
+    import { mapMutations } from 'vuex'
+    import axios from 'axios'
    import {Panel} from 'vux'
     
     export default {
@@ -13,25 +15,27 @@
         data(){
             return {
                 type:'1',
-                list: [{
-                    src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
-                    title: '标题一',
-                    desc: '由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。',
-                    url: '/component/cell'
-                }, {
-                    src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
-                    title: '标题二',
-                    desc: '由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。',
-                    url: {
-                    path: '/component/radio',
-                    replace: false
-                    }
-                }],
+                list: [],
                 footer: {
                     title: '查看更多',
-                    url: 'http://vux.li'
+                    url: 'http://www.jianshu.com/u/64467c788eb7'
                 }
             }
+        },
+
+        created(){
+            axios.get('./static/blog.json').then((res)=>{
+                this.list = res.data
+            })
+        },
+
+        mounted() {
+            this.SET_TITLE(this.$t('Discovery'))
+            this.SET_RIGHT_OPTION({show:false})
+        },
+
+        methods: {
+            ...mapMutations(['SET_TITLE','SET_RIGHT_OPTION'])
         }
     }
 </script>
