@@ -12,31 +12,31 @@ if (lazyLoading) {
   routes = [
     {
       path: '/',
-      component: resolve => require(['../pages/Map'], resolve),
+      component: resolve => require(['../views/Map'], resolve),
     }, 
     {
       path: '/setting',
-      component: resolve => require(['../pages/Setting'], resolve),
+      component: resolve => require(['../views/Setting'], resolve),
     }, 
     {
       path: '/cities',
-      component: resolve => require(['../pages/Cities'], resolve),
+      component: resolve => require(['../views/Cities'], resolve),
     }, 
     {
       path: '/discovery',
-      component: resolve => require(['../pages/Discovery'], resolve),
+      component: resolve => require(['../views/Discovery'], resolve),
     }, 
     {
       path: '/about',
-      component: resolve => require(['../pages/About'], resolve),
+      component: resolve => require(['../views/About'], resolve),
     }, 
     {
       path: '/more',
-      component: resolve => require(['../pages/More'], resolve),
+      component: resolve => require(['../views/More'], resolve),
     },
     {
       path:'/weather',
-      component: resolve => require(['../pages/Weather'], resolve),
+      component: resolve => require(['../views/Weather'], resolve),
     }
   ]
 }
@@ -44,31 +44,31 @@ else {
   routes = [
     {
       path: '/',
-      component: require('../pages/Map'),
+      component: require('../views/Map'),
     }, 
     {
       path: '/setting',
-      component: require('../pages/Setting'),
+      component: require('../views/Setting'),
     }, 
     {
       path: '/cities',
-      component: require('../pages/Cities'),
+      component: require('../views/Cities'),
     }, 
     {
       path: '/discovery',
-      component: require('../pages/Discovery'),
+      component: require('../views/Discovery'),
     }, 
     {
       path: '/about',
-      component: require('../pages/About'),
+      component: require('../views/About'),
     }, 
     {
       path: '/more',
-      component: require('../pages/More'),
+      component: require('../views/More'),
     },
     {
       path: '/weather',
-      component: require('../pages/Weather')
+      component: require('../views/Weather')
     }
   ]
 }
