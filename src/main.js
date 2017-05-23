@@ -89,3 +89,8 @@ new Vue({
 //   window.addEventListener("resize", setFont, false)
 //   setFont();
 // }
+
+// service worker
+if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js')
+}

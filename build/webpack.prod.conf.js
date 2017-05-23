@@ -8,6 +8,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var SWPrecachePlugin = require('sw-precache-webpack-plugin')
 
 var env = config.build.env
 
@@ -116,5 +117,15 @@ if (config.build.bundleAnalyzerReport) {
   var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
+
+webpackConfig.plugins.push(
+  // auto generate service worker
+  new SWPrecachePlugin({
+    cacheId: 'vue-hn',
+    filename: 'service-worker.js',
+    dontCacheBustUrlsMatching: /./,
+    staticFileGlobsIgnorePatterns: [/index\.html$/, /\.map$/]
+  })
+)
 
 module.exports = webpackConfig
