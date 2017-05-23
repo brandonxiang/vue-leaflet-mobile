@@ -1,7 +1,7 @@
 <template>
   <card :header="{title:'更多服务'}">
   <grid slot="content">
-    <grid-item v-for="item in items" :label="item.label" :link="item.link">
+    <grid-item v-for="item in items" :key="item.label" :label="item.label" :link="item.link">
       <img slot="icon" :src="item.img">
     </grid-item>
   </grid>

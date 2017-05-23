@@ -1,7 +1,7 @@
 <template>
   <div class="vux-1px-t">
     <swipeout>
-      <swipeout-item link="/" transition-mode="follow" v-for="item in selectedCities">
+      <swipeout-item link="/" transition-mode="follow" v-for="item in selectedCities" :key="item">
         <div slot="right-menu">
           <swipeout-button @click.native="deleteCity(item.name)" type="warn">{{$t('Delete')}}</swipeout-button>
         </div>
