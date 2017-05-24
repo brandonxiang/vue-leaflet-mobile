@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style>
-@import "~leaflet/dist/leaflet.css";
+@import "https://cdn.bootcss.com/leaflet/1.0.3/leaflet.css";
 @import "~leaflet.locatecontrol/dist/L.Control.Locate.css";
 @import "//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css";
 

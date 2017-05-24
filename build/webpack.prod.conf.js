@@ -31,6 +31,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       'process.env': env
     }),
     new webpack.optimize.UglifyJsPlugin({
+      comments: false,
       compress: {
         warnings: false
       },
@@ -95,6 +96,8 @@ var webpackConfig = merge(baseWebpackConfig, {
   ]
 })
 
+
+console.log(config.build.productionGzip)
 if (config.build.productionGzip) {
   var CompressionWebpackPlugin = require('compression-webpack-plugin')
 
