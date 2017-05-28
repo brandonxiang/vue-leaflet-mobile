@@ -1,13 +1,13 @@
 <template>
-  <div class="vux-1px-t">
+  <div class="vux-1px-t full-height">
     <swipeout>
       <swipeout-item link="/" transition-mode="follow" v-for="item in selectedCities">
         <div slot="right-menu">
           <swipeout-button @click.native="deleteCity(item.name)" type="warn">{{$t('Delete')}}</swipeout-button>
         </div>
-        <router-link slot="content" to="/" class="navigator vux-1px-b" @click="changeCity(item)">
+        <a slot="content" :href="to" class="navigator vux-1px-b" @click="changeMapCity(item.name)">
           {{$t(item.name)}}
-        </router-link>
+        </a>
       </swipeout-item>
     </swipeout>
     <router-link to="more" class="navigator vux-1px-b">{{$t('More')}}</router-link>
@@ -20,6 +20,12 @@ import { Swipeout, SwipeoutItem, SwipeoutButton, Cell } from 'vux'
 import { mapState, mapActions, mapGetters } from 'vuex'
 
 export default {
+
+  data(){
+    return {
+      to: this.$route.params.target == 'map'? '/':'/weather'
+    }
+  },
 
   components: {
     Swipeout,
@@ -42,10 +48,11 @@ export default {
   methods: {
     ...mapMutations(['SET_TITLE', 'SET_RIGHT_OPTION']),
     ...mapActions([
-      'changeCity',
+      'changeMapCity',
       'deleteCity',
     ]),
-  }
+  },
+
 }
 
 </script>

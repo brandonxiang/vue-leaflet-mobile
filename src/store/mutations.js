@@ -5,23 +5,26 @@ export default {
     state.title = title
   },
 
-  [types.CHANGE_CITY](state, { coordinates, name }) {
-    state.coordinate = coordinates;
-    state.cityName = name;
+  [types.CHANGE_MAP_CITY](state, { coordinates, name }) {
+    state.map.coordinate = coordinates;
+    state.map.cityName = name;
+  },
+
+  [types.CHANGE_WEARTHER_CITY](state, name) {
+    state.now.cityName = name;
   },
 
   [types.DELETE_CITY](state, name) {
-    const start = state.map.selectedNames.indexOf(name)
-    state.map.selectedNames.splice(start, 1)
+    const start = state.selectedNames.indexOf(name)
+    state.selectedNames.splice(start, 1)
   },
 
   [types.TOGGLE_CITY](state, name) {
-    console.log(state.map.selectedNames)
-    if (state.map.selectedNames.includes(name)) {
-      const start = state.map.selectedNames.indexOf(name)
-      state.map.selectedNames.splice(start, 1)
+    if (state.selectedNames.includes(name)) {
+      const start = state.selectedNames.indexOf(name)
+      state.selectedNames.splice(start, 1)
     } else {
-      state.map.selectedNames.push(name)
+      state.selectedNames.push(name)
     }
   },
 

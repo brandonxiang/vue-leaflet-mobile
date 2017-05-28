@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container full-height">
         <div class="nowinfo">
             <div class="now-cityname">{{now.cityName}}</div>
             <div class="now-text">{{now.text}}</div>
@@ -36,7 +36,7 @@ export default {
 
     mounted() {
         this.SET_TITLE('天气')
-        this.SET_RIGHT_OPTION({show:true,name:'城市',link:'cities'})
+        this.SET_RIGHT_OPTION({show:true,name:'城市',link:'cities/weather'})
     },
 
     methods: {

@@ -71,7 +71,16 @@ body {
   background-color: #fbf9fe;
 }
 
+html,
+body,
+.full-height {
+    height: 100%;
+}
 
+body {
+    padding: 0;
+    margin: 0;
+}
 
 /**
 * vue-router transition

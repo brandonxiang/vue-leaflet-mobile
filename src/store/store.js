@@ -8,13 +8,13 @@ const state = {
   map: {
     cityName: 'Shenzhen',
     coordinate: [22.5455537937, 114.0544373601],
-    selectedNames: ['Shenzhen', 'Beijing', 'Shanghai'],
   },
   rightOption: {
     show: true,
     name: '城市',
     link: 'cities',
   },
+  selectedNames: ['Shenzhen', 'Beijing', 'Shanghai'],  
   cities: [
     { name: 'Shenzhen', coordinates: [22.5455537937, 114.0544373601] },
     { name: 'Beijing', coordinates: [39.9032724643, 116.4009203787] },

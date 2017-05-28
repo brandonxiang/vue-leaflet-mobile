@@ -6,7 +6,7 @@ export const cityName = state => state.map.cityName
 
 export const center = state => state.map.coordinate
 
-export const selectedCities =  (state) => state.cities.filter(city => state.map.selectedNames.includes(city.name))
+export const selectedCities =  (state) => state.cities.filter(city => state.selectedNames.includes(city.name))
 
 export const cities = state => state.cities
 

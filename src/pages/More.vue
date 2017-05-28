@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="full-height">
     <flexbox :gutter="0" wrap="wrap">
         <flexbox-item :span="1/4" v-for="city in cities">
             <div v-bind="city" :class="checkSelect(city.name)" 

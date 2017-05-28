@@ -19,7 +19,7 @@ if (lazyLoading) {
       component: resolve => require(['../pages/Setting'], resolve),
     }, 
     {
-      path: '/cities',
+      path: '/cities/:target',
       component: resolve => require(['../pages/Cities'], resolve),
     }, 
     {

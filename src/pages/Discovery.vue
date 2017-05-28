@@ -1,5 +1,7 @@
 <template>
+    <div class="full-height">
   <panel header="我的博客" :footer="footer" :list="list" :type="type"></panel>
+  </div>
 </template>
 
 <script>

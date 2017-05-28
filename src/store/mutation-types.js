@@ -1,4 +1,6 @@
-export const CHANGE_CITY = "CHANGE_CITY"
+export const CHANGE_MAP_CITY = "CHANGE_MAP_CITY"
+
+export const CHANGE_WEATHER_CITY = "CHANGE_WEATHER_CITY"
 
 export const DELETE_CITY = "DELETE_CITY"
 

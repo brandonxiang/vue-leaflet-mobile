@@ -9,7 +9,9 @@ import querystring from 'querystring'
 
 export const loadCoordinates = ({ commit }) => { }
 
-export const changeCity = makeAction(types.CHANGE_CITY)
+export const changeMapCity = makeAction(types.CHANGE_MAP_CITY)
+
+export const changeWeatherCity = makeAction(types.CHANGE_WEATHER_CITY)
 
 export const deleteCity = makeAction(types.DELETE_CITY)
 

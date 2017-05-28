@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="full-height">
     <blur :blur-amount=40 :url="headImg">
       <p class="center headpart">
         <img :src="headImg">

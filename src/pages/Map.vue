@@ -38,7 +38,7 @@ export default {
 
     mounted() {
         this.SET_TITLE(this.$t('Map'))
-        this.SET_RIGHT_OPTION({ show: true, name: '城市', link: 'cities' })
+        this.SET_RIGHT_OPTION({ show: true, name: '城市', link: 'cities/map' })
         this.addControl(new locateControl())
     },
 
@@ -57,16 +57,5 @@ export default {
 #map {
     width: 100%;
     height: 100%;
-}
-
-html,
-body,
-.full-height {
-    height: 100%;
-}
-
-body {
-    padding: 0;
-    margin: 0;
 }
 </style>
