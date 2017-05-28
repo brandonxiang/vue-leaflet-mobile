@@ -3,77 +3,38 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-const lazyLoading = true
-let routes = null
-
-
-if (lazyLoading) {
-  //lazy loading components
-  routes = [
+const routes = [
     {
       path: '/',
-      component: resolve => require(['../pages/Map'], resolve),
+      component: resolve => require(['../views/Map'], resolve),
     }, 
     {
       path: '/setting',
-      component: resolve => require(['../pages/Setting'], resolve),
+      component: resolve => require(['../views/Setting'], resolve),
     }, 
     {
       path: '/cities/:target',
-      component: resolve => require(['../pages/Cities'], resolve),
+      component: resolve => require(['../views/Cities'], resolve),
     }, 
     {
       path: '/discovery',
-      component: resolve => require(['../pages/Discovery'], resolve),
+      component: resolve => require(['../views/Discovery'], resolve),
     }, 
     {
       path: '/about',
-      component: resolve => require(['../pages/About'], resolve),
+      component: resolve => require(['../views/About'], resolve),
     }, 
     {
       path: '/more',
-      component: resolve => require(['../pages/More'], resolve),
+      component: resolve => require(['../views/More'], resolve),
     },
     {
       path:'/weather',
-      component: resolve => require(['../pages/Weather'], resolve),
+      component: resolve => require(['../views/Weather'], resolve),
     }
   ]
-}
-else {
-  routes = [
-    {
-      path: '/',
-      component: require('../pages/Map'),
-    }, 
-    {
-      path: '/setting',
-      component: require('../pages/Setting'),
-    }, 
-    {
-      path: '/cities',
-      component: require('../pages/Cities'),
-    }, 
-    {
-      path: '/discovery',
-      component: require('../pages/Discovery'),
-    }, 
-    {
-      path: '/about',
-      component: require('../pages/About'),
-    }, 
-    {
-      path: '/more',
-      component: require('../pages/More'),
-    },
-    {
-      path: '/weather',
-      component: require('../pages/Weather')
-    }
-  ]
-}
 
 
-const router = new VueRouter({mode:'history', routes })
+const router = new VueRouter({mode:'history',base:'/website/', routes })
 
 export default router

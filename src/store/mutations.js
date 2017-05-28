@@ -10,7 +10,7 @@ export default {
     state.map.cityName = name;
   },
 
-  [types.CHANGE_WEARTHER_CITY](state, name) {
+  [types.CHANGE_WEATHER_CITY](state, name) {
     state.now.cityName = name;
   },
 

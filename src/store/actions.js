@@ -1,8 +1,8 @@
 import { makeAction } from '../utils/actionTools'
 import * as types from './mutation-types'
-import { getNowWeather, getFutureWeather } from '@/network/getWeather'
-import { weatherhost, WEATHERKEY, WEATHERUID } from '@/network/api'
-import jsonp from '@/network/jsonp'
+import { getNowWeather, getFutureWeather } from '@/api/getWeather'
+import { weatherhost, WEATHERKEY, WEATHERUID } from '@/api/api'
+import jsonp from '@/api/jsonp'
 import { base64 } from 'vux'
 const crypto = require('crypto')
 import querystring from 'querystring'
