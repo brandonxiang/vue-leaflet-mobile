@@ -5,7 +5,7 @@
         <div slot="right-menu">
           <swipeout-button @click.native="deleteCity(item.name)" type="warn">{{$t('Delete')}}</swipeout-button>
         </div>
-        <a slot="content" :href="to" class="navigator vux-1px-b" @click="changeMapCity(item.name)">
+        <a slot="content" href="javascript:;" class="navigator vux-1px-b" @click="onChange(item.name)">
           {{$t(item.name)}}
         </a>
       </swipeout-item>
@@ -21,12 +21,6 @@ import { mapState, mapActions, mapGetters } from 'vuex'
 
 export default {
 
-  data(){
-    return {
-      to: this.$route.params.target == 'map'? '/':'/weather'
-    }
-  },
-
   components: {
     Swipeout,
     SwipeoutItem,
@@ -36,21 +30,32 @@ export default {
 
   computed: {
     ...mapGetters([
-      "selectedCities"
+      "selectedCities",
     ]),
   },
 
   mounted() {
-    this.SET_TITLE(this.$t('Cities'))
-    this.SET_RIGHT_OPTION({ show: false })
+    this.SET_HEADER({title:this.$t('Cities')})
   },
 
   methods: {
-    ...mapMutations(['SET_TITLE', 'SET_RIGHT_OPTION']),
+    ...mapMutations(['SET_HEADER']),
     ...mapActions([
       'changeMapCity',
+      'changeWeatherCity',
       'deleteCity',
     ]),
+    onChange(name){
+       var fromPath = this.$store.state.route.from.fullPath
+        if(fromPath === '/'){
+          this.changeMapCity(name)
+        }else if(fromPath === '/weather'){
+          this.changeWeatherCity(name)
+        }
+        this.$router.go(-1)
+       
+        
+    },
   },
 
 }

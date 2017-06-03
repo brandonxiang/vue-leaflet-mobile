@@ -47,8 +47,6 @@ const webpackConfig = {
               limit: 10000,
               name: utils.assetsPath('img/[name].[hash:7].[ext]')
             }
-          },{
-            loader: 'webp-loader',
           },
           {
             loader: 'image-webpack-loader',

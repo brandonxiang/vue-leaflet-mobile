@@ -37,13 +37,15 @@ export default {
     },
 
     mounted() {
-        this.SET_TITLE(this.$t('Map'))
-        this.SET_RIGHT_OPTION({ show: true, name: '城市', link: 'cities/map' })
+        this.SET_HEADER({
+            title:this.$t('Map'),
+            rightOption:{ show: true, name: '城市', link: 'cities' },
+        })
         this.addControl(new locateControl())
     },
 
     methods: {
-        ...mapMutations(['SET_TITLE', 'SET_RIGHT_OPTION', 'addControl'])
+        ...mapMutations(['SET_HEADER', 'addControl'])
     }
 }
 

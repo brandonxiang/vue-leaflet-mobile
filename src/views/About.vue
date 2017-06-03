@@ -42,12 +42,11 @@ export default {
     },
 
     mounted() {
-        this.SET_TITLE(this.$t('About'))
-        this.SET_RIGHT_OPTION({ show: false })
+        this.SET_HEADER({title:this.$t('About')})
     },
 
     methods: {
-        ...mapMutations(['SET_TITLE', 'SET_RIGHT_OPTION'])
+        ...mapMutations(['SET_HEADER'])
     }
 }
 </script>

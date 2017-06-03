@@ -28,8 +28,12 @@ export default {
         ]),
     },
 
+    mounted() {
+        this.SET_HEADER({title:this.$t('More')})
+    },
+
     methods: {
-        ...mapMutations(['SET_TITLE','SET_RIGHT_OPTION']),
+        ...mapMutations(['SET_HEADER']),
         ...mapActions(['toggleCity']),
         checkSelect(name){
             for(let city of this.selectedCities){
@@ -41,10 +45,7 @@ export default {
         }
     },
 
-    mounted() {
-        this.SET_TITLE(this.$t('Discovery'))
-        this.SET_RIGHT_OPTION({show:false})
-    },
+  
 
 
 }

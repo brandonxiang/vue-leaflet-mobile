@@ -1,3 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
+import {reqhost} from './api'
 
-export const getBlog = (params) => axios.get('../static/blog.json', {params})
+export const getBlog = params => axios.get(`${reqhost}/blog`, { params });

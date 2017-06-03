@@ -35,12 +35,14 @@ export default {
     },
 
     mounted() {
-        this.SET_TITLE('天气')
-        this.SET_RIGHT_OPTION({show:true,name:'城市',link:'cities/weather'})
+        this.SET_HEADER({
+            title:'天气',
+            rightOption: {show:true,name:'城市',link:'cities'}
+        })
     },
 
     methods: {
-        ...mapMutations(['SET_TITLE','SET_RIGHT_OPTION']),
+        ...mapMutations(['SET_HEADER']),
         ...mapActions(['loadNowWeather','loadDailyWeather'])
     }
 }

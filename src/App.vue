@@ -1,7 +1,7 @@
 <template>
   <div style="height:100%;">
     <view-box ref="viewBox">
-      <x-header :left-options="{showBack: false}">
+      <x-header :left-options="leftOption">
         {{title}}
         <router-link v-if="rightOption.show" slot="right"
          :to="rightOption.link">{{rightOption.name}}</router-link>
@@ -33,7 +33,8 @@ export default {
     ...mapGetters([
       "title",
       "direction",
-      'rightOption'
+      'rightOption',
+      'leftOption'
     ]),
     back:{
       get:function(){

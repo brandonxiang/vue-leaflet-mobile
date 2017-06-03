@@ -13,7 +13,7 @@ const routes = [
     component: resolve => require(['../views/Setting'], resolve),
   },
   {
-    path: '/cities/:target',
+    path: '/cities',
     component: resolve => require(['../views/Cities'], resolve),
   },
   {

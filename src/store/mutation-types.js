@@ -8,9 +8,7 @@ export const TOGGLE_CITY = "TOGGLE_CITY"
 
 export const UPDATE_DIRECTION = "UPDATE_DIRECTION"
 
-export const SET_TITLE = "SET_TITLE"
-
-export const SET_RIGHT_OPTION = 'SET_RIGHT_OPTION'
+export const SET_HEADER = "SET_HEADER"
 
 export const SET_NOW_WEATHER = 'SET_NOW_WEATHER'
 

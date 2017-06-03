@@ -1,47 +1,38 @@
-import { makeAction } from '../utils/actionTools'
-import * as types from './mutation-types'
-import { getNowWeather, getFutureWeather } from '@/api/getWeather'
-import { weatherhost, WEATHERKEY, WEATHERUID } from '@/api/api'
-import jsonp from '@/api/jsonp'
-import { base64 } from 'vux'
-const crypto = require('crypto')
-import querystring from 'querystring'
+import { makeAction } from '../utils/actionTools';
+import * as types from './mutation-types';
+import { getNowWeather, getFutureWeather } from '@/api/getWeather';
 
-export const loadCoordinates = ({ commit }) => { }
+export const changeMapCity = makeAction(types.CHANGE_MAP_CITY);
 
-export const changeMapCity = makeAction(types.CHANGE_MAP_CITY)
+export const changeWeatherCity = makeAction(types.CHANGE_WEATHER_CITY);
 
-export const changeWeatherCity = makeAction(types.CHANGE_WEATHER_CITY)
+export const deleteCity = makeAction(types.DELETE_CITY);
 
-export const deleteCity = makeAction(types.DELETE_CITY)
+export const toggleCity = makeAction(types.TOGGLE_CITY);
 
-export const toggleCity = makeAction(types.TOGGLE_CITY)
+export const updateDirction = makeAction(types.UPDATE_DIRECTION);
 
-export const updateDirction = makeAction(types.UPDATE_DIRECTION)
+export const loadNowWeather = ({ commit }) => {
+  getNowWeather({
+      location: 'shenzhen',
+      language: 'zh-Hans',
+      unit: 'c',
+    }).then((res) => {
+      commit('SET_NOW_WEATHER', res.data.results[0].now);
+    });
+};
 
-export const loadNowWeather = ({commit}) => {
-    getNowWeather({
-        key:WEATHERKEY,
-        location: 'shenzhen',
-        language:'zh-Hans',
-        unit:'c',
-    }).then((res)=>{
-        commit('SET_NOW_WEATHER', res.data.results[0].now)
-    })
-}
-
-export const loadDailyWeather = ({commit}) => {
-    getFutureWeather({
-        key:WEATHERKEY,
-        location: 'shenzhen',
-        language:'zh-Hans',
-        unit:'c',
-        start:0,
-        days:5,
-    }).then((res)=>{
-        commit('SET_FUTURE_WEATHER', res.data.results[0].daily)
-    })
-}
+export const loadDailyWeather = ({ commit }) => {
+  getFutureWeather({
+      location: 'shenzhen',
+      language: 'zh-Hans',
+      unit: 'c',
+      start: 0,
+      days: 5,
+    }).then((res) => {
+      commit('SET_FUTURE_WEATHER', res.data.results[0].daily);
+    });
+};
 
 // export const loadNowWeather = ({ commit, state }) => {
 

@@ -48,8 +48,12 @@ export default {
     }
   },
 
+  mounted() {
+    this.SET_HEADER({title: this.$t('Setting')})
+  },
+
   methods: {
-    ...mapMutations(['SET_TITLE', 'SET_RIGHT_OPTION']),
+    ...mapMutations(['SET_HEADER']),
     onChange(val) {
       if (val[0] === '中文') {
         this.$i18n.set('zh-CN')
@@ -57,11 +61,6 @@ export default {
         this.$i18n.set('en')
       }
     },
-  },
-
-  mounted() {
-    this.SET_TITLE(this.$t('Setting'))
-    this.SET_RIGHT_OPTION({ show: false })
   },
 
 }

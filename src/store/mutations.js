@@ -1,13 +1,12 @@
 import * as types from './mutation-types'
 
 export default {
-  [types.SET_TITLE](state, title){
-    state.title = title
+  [types.SET_HEADER](state, header){
+    state.header = header
   },
 
-  [types.CHANGE_MAP_CITY](state, { coordinates, name }) {
-    state.map.coordinate = coordinates;
-    state.map.cityName = name;
+  [types.CHANGE_MAP_CITY](state, name) {
+    state.mapCityName = name;
   },
 
   [types.CHANGE_WEATHER_CITY](state, name) {
@@ -30,10 +29,6 @@ export default {
 
   [types.UPDATE_DIRECTION](state, payload) {
     state.direction = payload.direction
-  },
-
-  [types.SET_RIGHT_OPTION](state, rightOption){
-    state.rightOption = rightOption
   },
 
   [types.SET_NOW_WEATHER](state, now){

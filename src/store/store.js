@@ -3,18 +3,22 @@ import * as getters from './getters'
 import * as actions from './actions'
 
 const state = {
-  title: '地图',
+  header: {
+    title: '地图',
+    rightOption: {
+      show: true,
+      name: '城市',
+      link: 'cities',
+    },
+    leftOption: {}
+  },
+
   direction: 'forward',
-  map: {
-    cityName: 'Shenzhen',
-    coordinate: [22.5455537937, 114.0544373601],
-  },
-  rightOption: {
-    show: true,
-    name: '城市',
-    link: 'cities',
-  },
-  selectedNames: ['Shenzhen', 'Beijing', 'Shanghai'],  
+
+  mapCityName: 'Shenzhen',
+
+  selectedNames: ['Shenzhen', 'Beijing', 'Shanghai'],
+
   cities: [
     { name: 'Shenzhen', coordinates: [22.5455537937, 114.0544373601] },
     { name: 'Beijing', coordinates: [39.9032724643, 116.4009203787] },
@@ -26,11 +30,12 @@ const state = {
     { name: 'Xian', coordinates: [34.3427473471, 108.9351962803] },
     { name: 'Wuhan', coordinates: [30.5951668577, 114.2998018195] }
   ],
+
   now: {
     cityName: 'Shenzhen',
     text: 'Sunny',
     temperature: 20,
-    code:'14',
+    code: '14',
   },
   future: [
     {
@@ -50,7 +55,7 @@ const state = {
       low: 20,
     },
     {
-      day:'后天',
+      day: '后天',
       date: '"2017-05-15"',
       code_day: '1',
       code_night: '2',
