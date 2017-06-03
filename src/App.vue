@@ -64,22 +64,32 @@ export default {
 </script>
 
 <style lang="less">
+@import './assets/css/lib-rem.less';
 @import '~vux/src/styles/reset.less';
 @import '~vux/src/styles/1px.less';
 
-body {
-  background-color: #fbf9fe;
-}
 
 html,
-body,
-.full-height {
+body {
     height: 100%;
 }
 
+.full-height{
+  padding-top: 45px;
+  font-size: 0.7rem;
+  height:100%;
+}
+
 body {
-    padding: 0;
-    margin: 0;
+  background-color: #fbf9fe;
+  padding: 0;
+  margin: 0;
+}
+
+.weui-tab .vux-header {
+  position: absolute;
+  left:0;
+  right:0;
 }
 
 /**
