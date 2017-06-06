@@ -12,9 +12,9 @@ export const toggleCity = makeAction(types.TOGGLE_CITY);
 
 export const updateDirction = makeAction(types.UPDATE_DIRECTION);
 
-export const loadNowWeather = ({ commit }) => {
+export const loadNowWeather = ({ commit, state }) => {
   getNowWeather({
-      location: 'shenzhen',
+      location: state.now.cityName,
       language: 'zh-Hans',
       unit: 'c',
     }).then((res) => {
@@ -22,9 +22,9 @@ export const loadNowWeather = ({ commit }) => {
     });
 };
 
-export const loadDailyWeather = ({ commit }) => {
+export const loadDailyWeather = ({ commit, state }) => {
   getFutureWeather({
-      location: 'shenzhen',
+      location: state.now.cityName,
       language: 'zh-Hans',
       unit: 'c',
       start: 0,

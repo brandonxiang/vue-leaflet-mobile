@@ -29,7 +29,10 @@ export default {
     },
 
     mounted() {
-        this.SET_HEADER({title:this.$t('More')})
+        this.SET_HEADER({
+            title:this.$t('More'),
+            leftOption:{showBack: true}
+        })
     },
 
     methods: {

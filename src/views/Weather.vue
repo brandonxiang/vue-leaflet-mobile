@@ -30,8 +30,11 @@ export default {
     },
 
     created(){
-        const fetch = [this.loadNowWeather(), this.loadDailyWeather()]
-        Promise.all(fetch)
+        this.fetchWeather()
+    },
+
+    watch: {
+       'now': 'fetchWeather'
     },
 
     mounted() {
@@ -43,7 +46,12 @@ export default {
 
     methods: {
         ...mapMutations(['SET_HEADER']),
-        ...mapActions(['loadNowWeather','loadDailyWeather'])
+        ...mapActions(['loadNowWeather','loadDailyWeather']),
+        fetchWeather(){
+            
+            const fetch = [this.loadNowWeather(), this.loadDailyWeather()]
+            Promise.all(fetch)
+        }
     }
 }
 </script>
