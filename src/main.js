@@ -23,6 +23,8 @@ Vue.use(vuexI18n.plugin, store);
 Vue.use(VueLeaflet.plugin, store);
 Vue.use(VueMeta);
 
+Vue.config.productionTip = false
+
 FastClick.attach(document.body);
 
 const finalLocales = {

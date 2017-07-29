@@ -1,3 +1,4 @@
+var fs = require('fs')
 var path = require('path')
 var utils = require('./utils')
 var webpack = require('webpack')
@@ -8,7 +9,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-var SWPrecachePlugin = require('sw-precache-webpack-plugin')
+var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 
 var env = config.build.env
 
@@ -31,7 +32,6 @@ var webpackConfig = merge(baseWebpackConfig, {
       'process.env': env
     }),
     new webpack.optimize.UglifyJsPlugin({
-      comments: false,
       compress: {
         warnings: false
       },
@@ -63,7 +63,9 @@ var webpackConfig = merge(baseWebpackConfig, {
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency'
+      chunksSortMode: 'dependency',
+      serviceWorkerLoader: `<script>${fs.readFileSync(path.join(__dirname,
+        './service-worker-prod.js'), 'utf-8')}</script>`
     }),
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
@@ -92,12 +94,18 @@ var webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    // service worker caching
+    new SWPrecacheWebpackPlugin({
+      cacheId: 'my-vue-app',
+      filename: 'service-worker.js',
+      staticFileGlobs: ['dist/**/*.{js,html,css}'],
+      minify: true,
+      stripPrefix: 'dist/'
+    })
   ]
 })
 
-
-console.log(config.build.productionGzip)
 if (config.build.productionGzip) {
   var CompressionWebpackPlugin = require('compression-webpack-plugin')
 
@@ -120,15 +128,5 @@ if (config.build.bundleAnalyzerReport) {
   var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
-
-webpackConfig.plugins.push(
-  // auto generate service worker
-  new SWPrecachePlugin({
-    cacheId: 'vue-hn',
-    filename: 'service-worker.js',
-    dontCacheBustUrlsMatching: /./,
-    staticFileGlobsIgnorePatterns: [/index\.html$/, /\.map$/]
-  })
-)
 
 module.exports = webpackConfig
