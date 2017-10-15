@@ -9,6 +9,6 @@ before_install:
 - echo -e "Host 139.199.185.23\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 after_success:
 - tar -jcf leaflet-client.tar.bz2 www
-- scp leaflet-client.tar.bz2 brandon@139.199.185.23:/www/lnmp/web
-- ssh brandon@139.199.185.23 'cd /www/lnmp/web && mkdir -p app && tar -jxf leaflet-server.tar.bz2
-  -C app'e
+- scp leaflet-client.tar.bz2 brandon@139.199.185.23:~/
+- ssh brandon@139.199.185.23 'cd /www/lnmp/web && mkdir -p app && tar -jxf ~/leaflet-server.tar.bz2
+  -C app'
