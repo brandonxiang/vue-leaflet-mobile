@@ -20,6 +20,8 @@ npn run build
 
 ## DEMO
 
+[DEMO](https://www.shanww.cc/app/)
+
 [PC DEMO](https://brandonxiang.github.io/vue-leaflet-mobile/www/)
 
 ![Phone DEMO](screen/demo.png)
