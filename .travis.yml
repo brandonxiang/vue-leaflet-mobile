@@ -3,7 +3,8 @@ node_js:
 - 8.2.1
 before_install:
 - openssl aes-256-cbc -K $encrypted_e13e8c1081c6_key -iv $encrypted_e13e8c1081c6_iv
-  -in id_rsa.enc -out ~\/.ssh/id_rsa -d
+  -in id_rsa.enc -out ~/.ssh/id_rsa -d
+
 - chmod 600 ~/.ssh/id_rsa
 - echo -e "Host 139.199.185.23\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 after_success:
