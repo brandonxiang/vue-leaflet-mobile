@@ -3,8 +3,7 @@
     <view-box ref="viewBox">
       <x-header :left-options="leftOption">
         {{title}}
-        <router-link v-if="rightOption.show" slot="right"
-         :to="rightOption.link">{{rightOption.name}}</router-link>
+        <router-link v-if="rightOption.show" slot="right" :to="rightOption.link">{{rightOption.name}}</router-link>
       </x-header>
       <transition :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
         <router-view class="router-view"></router-view>
@@ -36,8 +35,8 @@ export default {
       'rightOption',
       'leftOption'
     ]),
-    back:{
-      get:function(){
+    back: {
+      get: function () {
         return this.$t('Back')
       }
     }
@@ -53,7 +52,7 @@ export default {
     }
   },
 
-  created(){
+  created() {
     // this.isWechat= this.$device.isWechat
     // this.title = this.$t('Map')
   },
@@ -72,13 +71,13 @@ export default {
 
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
-.full-height{
+.full-height {
   padding-top: 45px;
   font-size: 0.7rem;
-  height:100%;
+  height: 100%;
 }
 
 body {
@@ -89,9 +88,10 @@ body {
 
 .weui-tab .vux-header {
   position: absolute;
-  left:0;
-  right:0;
+  left: 0;
+  right: 0;
 }
+
 
 /**
 * vue-router transition

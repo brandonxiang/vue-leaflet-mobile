@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+- 8.2.1
+before_install:
+- openssl aes-256-cbc -K $encrypted_1a6b6737b685_key -iv $encrypted_1a6b6737b685_iv
+  -in id_rsa.enc -out ~/.ssh/id_rsa -d
+
+- chmod 600 ~/.ssh/id_rsa
+- echo -e "Host 139.199.185.23\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+after_success:
+- tar -jcf leaflet-client.tar.bz2 www
+- scp leaflet-client.tar.bz2 brandon@139.199.185.23:/www/lnmp/web
+- ssh brandon@139.199.185.23 'cd /www/lnmp/web && mkdir -p app && tar -jxf leaflet-server.tar.bz2
+  -C app'e
